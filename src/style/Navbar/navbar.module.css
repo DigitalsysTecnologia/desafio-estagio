@@ -1,0 +1,19 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem;
+    height: 10vh;
+    width: 100%;
+    background-color: #111111;
+}
+
+.logo{
+    height: 3rem;
+    width: auto;
+}
+
+.icon {
+    height: 32px;
+    width: 32px;
+}

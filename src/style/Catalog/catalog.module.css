@@ -1,0 +1,35 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+.missao {
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.hero img {
+ 
+    object-fit: cover;
+}
+
+.missao img {
+
+    object-fit: cover;
+}
+
+.hero {
+background-color: var(--roxo);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}

@@ -1,0 +1,27 @@
+.hero {
+  background-color: var(--preto-dois);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  font-family: var(--font-kufam);
+}
+
+.titulo {
+  color: #fff;
+  font-size: 6rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.subtitulo {
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.rpg {
+  color: red;
+}
