@@ -9,7 +9,7 @@ yarn
 ### Instalação
 
 - Clone o repositório:
-  git clone https://url-para-seu-fork-do-projeto.git
+  git clone https://github.com/Wallysson-utfpr/desafio-estagio/tree/frontend-react
 
 - Instale as dependências do projeto:
   npm install
