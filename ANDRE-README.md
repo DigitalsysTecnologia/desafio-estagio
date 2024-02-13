@@ -48,7 +48,7 @@ Após isso, crie um usuário no qual nossa API usará para se comunicar com o ba
 
 ```Código para criar usuário vai aqui !!!```
 
-Após isso, adicione o projeto no seu GOPATH (Informações sobre o GOPATH podem ser obtidar por ```$ go help gopath```)
+Após isso, adicione o projeto no seu GOPATH (Informações sobre o GOPATH podem ser obtidar por ```$ go help gopath```). **AVISO** O projeto usa a variável de ambiente $GOPATH para orientação de diretórios, portanto o projeto PRECISA estar no diretório $GOPATH
 
 Por fim, após instalar todas as dependências, execute ```go run main.go``` para iniciar.
 
