@@ -5,6 +5,7 @@ import (
 	"log"
 )
 
+// carrega variaveis de ambiente
 func LoadEnvVars() {
 	err := godotenv.Load()
 	if err != nil {

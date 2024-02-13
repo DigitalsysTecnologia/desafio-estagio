@@ -11,6 +11,7 @@ func init() {
 	initializers.ConnectToDB()
 }
 
+// rotas da api
 func main() {
 	r := gin.Default()
 	r.POST("/usercreate", controllers.UserCreate)
