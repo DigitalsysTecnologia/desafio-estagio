@@ -187,3 +187,30 @@ A API permite operação de criação de personagens, classes, guildas, missões
 **Exemplo de JSON:** ```{
     "IDGuilda": 28
 }```
+
+-------------------------------------------------------------------------------------------------------------------------------------
+**Descrição:** Adiciona um personagem a uma guilda
+
+**EndPoint:** /joinguild
+
+**Método:**  POST
+
+**Exemplo de JSON:** ```{
+    "IDPerso": 6,
+    "IDG": 15
+}```
+
+-------------------------------------------------------------------------------------------------------------------------------------
+**Descrição:** Remove um personagem de uma guild
+
+**EndPoint:** /leaveguild
+
+**Método:**  POST
+
+**Exemplo de JSON:** ```{
+    "IDPerso": 6
+}```
+
+#Exemplo
+
+Primeiramente, após receber um token de autenticação, vamos criar uma nova classe acessando ```LOCALHOST:8080/createclass```, passando no JSON o ID o Nome da classe (O Software Postman pode ser usado para testar). Após isso, vamos criar um personagem acessando ```LOCALHOST:8080/createchar``` e enviar um POST com o Nome e Classe do personagem (deve ser uma classe existente). Ademais, podemos criar uma guilda acessando ```LOCALHOST:8080/createguild``` e, logo após isso, podemos adicionar nosso personagem a mesmo acessando ```LOCALHOST:8080/joinguild```. Por fim, podemos adiconar ou remover missões de uma guilda usando ```LOCALHOST:8080/givequest``` e ```LOCALHOST:8080/quitquest```
