@@ -46,7 +46,11 @@ Inicialmente, inicie o serviço MySQL na porta 3306 (alteração na porta requer
 
 Após isso, crie um usuário no qual nossa API usará para se comunicar com o banco de dados
 
-```Código para criar usuário vai aqui !!!```
+```CREATE USER 'rpguser'@'localhost' IDENTIFIED BY 'rpgpass';```
+
+```GRANT ALL PRIVILEGES ON rpgdb.* TO 'rpguser'@'localhost';```
+
+```FLUSH PRIVILEGES;!```
 
 Após isso, adicione o projeto no seu GOPATH (Informações sobre o GOPATH podem ser obtidar por ```$ go help gopath```). **AVISO** O projeto usa a variável de ambiente $GOPATH para orientação de diretórios, portanto o projeto PRECISA estar no diretório $GOPATH
 
