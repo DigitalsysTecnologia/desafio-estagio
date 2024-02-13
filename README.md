@@ -1,59 +1,140 @@
-# Desafio Técnico - Temática RPG
 
-Bem-vindos ao nosso processo seletivo para vagas de estágio em desenvolvimento! Estamos procurando talentos apaixonados por tecnologia e inovação, prontos para enfrentar desafios no mundo do desenvolvimento de software. Para tornar este processo mais interativo e divertido, elaboramos desafios técnicos inspirados no universo dos RPGs.
+## Dev Backend (Golang) - O Guardião dos Dados
+Esta é uma API desenvolvida em Golang, utilizando o framework Gin Gonic e a ferramenta GORM, que oferece funcionalidades de operações CRUD (Create, Read, Update, Delete) para criar missões em uma temática de RPG. A API permite a criação e autenticação de usuários, os quais podem administrar a criação, pesquisa, edição e deleção de missões de uma guilda de aventureiros.
 
-### IMPORTANTE: Por favor, faça o teste com o maior capricho possível, visto que é através dos detalhes que poderemos avaliar sua experiência e senioridade
+### Tecnologias e Ferramentas
+- *<a href="https://go.dev/">Go</a>*
+- *<a href="https://gin-gonic.com/">Gin Gonic</a>*
+- *<a href="https://gorm.io/index.html">GORM</a>*
+- *<a href="https://www.elephantsql.com/">ElephantSQL</a>*
+- *<a href="https://tableplus.com/">TablePlus</a>*
+- *<a href="https://www.postman.com/">Postman</a>*
 
-## Desafios
+### Configuração do ambiente
+1. Faça a configuração inicial das ferramentas listadas: 
+- Instale a linguagem Golang e suas bibliotecas Gin Gonic e GORM;
+- Cadastre-se na plataforma ElephantSQL, crie uma instância e copie a URL de sua instância;
+- Instale a ferramenta TablePlus e crie uma nova conexão com a URL de sua instância ElephantSQL;
+- Cadastre-se na plataforma Postman, e instale a ferramenta em sua máquina.
 
-Abaixo você encontrará os desafios para dev backend e dev frontend, faça o teste que for mais confortável para você, note que o teste de frontend ainda inclui mais uma escolha: mobile ou web, ambos usando o framework React.
+2. Clone o repositório, utilizando o seguinte comando:
 
-### Dev Backend (Golang) - O Guardião dos Dados
-![Guardião dos dados](https://digitalsys-cdn.nyc3.cdn.digitaloceanspaces.com/desafio-estagio/guardiao-dados-2.png)
+```bash
+https://github.com/LCostaF/desafio-estagio.git
+```
 
-#### Contexto
-Você é um Guardião dos Dados, encarregado de desenvolver uma infraestrutura segura para gerenciar as informações cruciais do reino. Utilizando Golang, juntamente com Gin Gonic e GORM, você deverá criar uma API RESTful que administre as missões de uma guilda de aventureiros.
+3. Localize o diretório com o repositório clonado, e o arquivo `.env`. Edite a variável `DB_URL` dentro do arquivo `.env` conforme as credenciais de sua instância na plataforma ElephantSQL.
 
-#### Missão
-Desenvolver uma API RESTful usando **Gin Gonic** que permita operações CRUD em missões de aventura. Utilize **GORM** para a interação com o banco de dados, facilitando a persistência e recuperação dos dados.
+4. Abra o projeto com alguma IDE ou editor para a linguagem Go, como o Visual Studio Code. Execute o seguinte comando para instalar as dependências do projeto:
 
-##### Requisitos Específicos
-- **Framework:** Utilize Gin Gonic para facilitar a criação da API.
-- **ORM:** Use GORM para manipulação dos dados no banco de dados.
-- **Autenticação:** Implemente autenticação básica para proteger a API.
-- **Documentação:** Documente os endpoints e exemplos de uso da API.
-- **Bônus:** Implemente testes unitários e de integração.
+```bash
+go mod tidy
+```
 
-### Dev Frontend (ReactJS/React Native) - O Artesão de Ilusões
-![Artesão das Ilusões](https://digitalsys-cdn.nyc3.cdn.digitaloceanspaces.com/desafio-estagio/artesao-ilusoes-2.png)
-#### Contexto
-Como um Artesão de Ilusões, você cria ambientes e objetos encantadores. Sua tarefa é desenvolver uma aplicação frontend que apresente um catálogo de aventuras e personagens de um RPG, demonstrando suas habilidades em criar interfaces ricas e interativas.
+5. Execute o arquivo `migrate.go` para criar automaticamente as tabelas no banco de dados:
 
-#### Missão
-Desenvolver uma aplicação frontend que exiba uma lista de missões e personagens, utilizando ReactJS para web ou React Native para mobile. A aplicação deve permitir ao usuário visualizar detalhes de cada missão e personagem, incluindo descrição, dificuldade e status.
+```bash
+go run migrate/migrate.go
+```
 
-##### Requisitos Específicos
-- Utilizar ReactJS para web ou React Native para mobile.
-- A aplicação deve ser responsiva e oferecer uma boa experiência de usuário em diferentes dispositivos.
-- Implementar navegação entre diferentes telas ou seções da aplicação.
-- **Bônus:** Utilizar animações ou transições para melhorar a interatividade da interface.
+6. Crie um Workspace na ferramenta Postman, criando nele duas coleções, uma para missões e outra para usuários.
 
-## Orientações para Submissão
+7. Crie 5 requisições (requests) dentro da coleção de missões, e 2 dentro da coleção de usuários, configurando-as da seguinte forma:
 
-1. **Fork este repositório** para sua conta no GitHub.
-2. **Crie uma branch específica** para o desafio que você está desenvolvendo (`backend-golang` ou `frontend-react`).
-3. **Desenvolva o projeto** seguindo os requisitos do desafio escolhido.
-4. **Documente** no `README.md` as instruções de como configurar e executar seu projeto, além de exemplos de uso da API ou da interface, conforme aplicável.
-5. **Abra um Pull Request** com suas alterações, incluindo no título do PR o desafio que você está submetendo e no corpo do PR qualquer observação ou comentário relevante sobre seu projeto.
+![image](https://github.com/LCostaF/desafio-estagio/assets/146568540/6889f1c8-20db-49a0-9cff-245af67183e1)
 
-### Critérios de Avaliação
+![image](https://github.com/LCostaF/desafio-estagio/assets/146568540/0c18426e-b14f-4f0f-852c-2deffc797ba3)
 
-- **Qualidade do código:** legibilidade, organização, aplicação de boas práticas.
-- **Funcionalidade:** todas as funcionalidades requisitadas devem estar implementadas e funcionando conforme esperado.
-- **Documentação:** clareza nas instruções de configuração e uso do projeto.
-- **Extras:** qualquer funcionalidade ou característica extra será considerada positivamente.
 
-### Deadline (Prazo de entrega)
-- **Não existe prazo determinado para a entrega do projeto:** entretanto, recomendamos que faça-o tão logo possível,  com certeza vamos ler e avaliar seu código, mas suponhamos que você só consiga nos enviar seu teste após outros 5 candidatos serem aprovados no teste e nas demais fases, isso significa que seu teste precisará ser MUITO bom para abrirmos uma exceção e colocar você como o nosso "sexto elemento" =) 
+8. Ao finalizar a configuração, poderá utilizar o comando abaixo para executar a API. A configuração, visualização e manipulação dos dados de usuários e missões poderão então serem feitas pelas ferramentas e suas interações com os endpoints.
 
-Boa sorte! Estamos ansiosos para ver as soluções incríveis que você irá criar.
+```bash
+go run .
+```
+
+### Utilizando a API
+Após a configuração do ambiente e execução da API, as operações para usuários e missões poderão ser realizadas com uso da ferramenta Postman.
+
+#### Operações de usuários
+As operações disponíveis para usuários são o registro de um novo usuário, e o login de um usuário já existente.
+
+##### Registrar novo usuário
+Ao executar a API pela primeira vez, é necessário criar um novo usuário para permitir a realização de operações CRUD em missões.
+
+Na ferrmenta Postman, selecione a requisição Register User. Na aba Body, selecione a opção raw, e forneça os dados em formato JSON:
+
+```json
+{
+    "Username": "aaa",
+    "Password": "123"
+}
+```
+
+Acione o botão Send, e se não houver erros o novo usuário será criado. Note que o nome de cada usuário é único, então não será possível criar vários usuários com o mesmo valor para o campo Username.
+
+##### Login de usuário
+Para efetuar Login com um usuário existente, após executar a aplicação selecione a requisição Login User. Na aba Body, selecione a opção raw, e forneça os dados de login em formato JSON, assim como no processo de registro de um novo usuário.
+
+É necessário ter efetuado o login de usuário para poder executar as operações de missões.
+
+#### Operações de missões
+As operações disponíveis para missãos são operações as CRUD, ou seja, criação, busca, atualização e remoção de missões.
+
+##### Criando uma missão
+Para criar uma nova missão, na ferramenta Postman selecione a requisição Create Mission. Na aba body, selecione a opção raw, e forneça os dados da missão em formato JSON. Acione o botão Send para criar a missão.
+
+```json
+{
+    "Title": "Wolves",
+    "Description": "Kill 15 wolves"
+}
+```
+
+##### Busca geral de missões
+Para obter uma lista com todas as missões existentes, selecione a requisição Query All Missions, e acione o botão Send.
+
+##### Busca específica de missão
+Para obter os dados de uma missão específica, selecione a requisição Query One Mission, editando o valor id na URL:
+
+```
+http://localhost:3000/missions/id
+```
+
+Onde id refere-se ao índice da missão desejada no banco de dados. Acione o botão Send para obter os dados.
+
+##### Atualização de missão
+Para atualizar os dados de uma missão, selecione a requisição Update Mission, e edite o valor id na URL para informar o ID da missão cujos campos serão alterados.
+
+```
+http://localhost:3000/missions/id
+```
+
+Em seguida, na aba Body, selecione a opção raw, e forneça os novos dados da missão em formato JSON. Acione o botão Send para atualizar os dados.
+
+```json
+{
+    "Title": "Goblins",
+    "Description": "Kill 20 goblins"
+}
+```
+
+Caso deseje alterar somente um dos campos da missão, forneça apenas o campo a ser alterado.
+
+```json
+{
+    "Title": "Goblins Trouble"
+}
+```
+
+```json
+{
+    "Description": "Kill 100 goblins"
+}
+```
+
+##### Remoção de missão
+Para remover uma missão, selecione a requisição Delete Mission, e edite o valor id na URL para informar o ID da missão a ser removida. Acione o botão Send para remover a missão.
+
+```
+http://localhost:3000/missions/id
+```
