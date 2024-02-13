@@ -1,59 +1,223 @@
-# Desafio Técnico - Temática RPG
 
-Bem-vindos ao nosso processo seletivo para vagas de estágio em desenvolvimento! Estamos procurando talentos apaixonados por tecnologia e inovação, prontos para enfrentar desafios no mundo do desenvolvimento de software. Para tornar este processo mais interativo e divertido, elaboramos desafios técnicos inspirados no universo dos RPGs.
+# Dev Backend (Golang) - O Guardião dos Dados
 
-### IMPORTANTE: Por favor, faça o teste com o maior capricho possível, visto que é através dos detalhes que poderemos avaliar sua experiência e senioridade
+A API foi desenvolvida em Golang utilizando o framework Gin Gonic e a biblioteca GORM para interação com o banco de dados Postgre. O principal objetivo da API é administrar as missões de uma guilda de aventureiros, oferecendo a criação de usuários para a manipulação da API e operações CRUD (Create, Read, Update, Delete) para manipulação dessas missões.
 
-## Desafios
 
-Abaixo você encontrará os desafios para dev backend e dev frontend, faça o teste que for mais confortável para você, note que o teste de frontend ainda inclui mais uma escolha: mobile ou web, ambos usando o framework React.
+## Tecnologias utilizadas
+- *<a href="https://go.dev/">Go</a>*
+- *<a href="https://gin-gonic.com/">Gin Gonic</a>*
+- *<a href="https://gorm.io/index.html">GORM</a>*
+- *<a href="https://www.postgresql.org/">PostgreSQL</a>*
 
-### Dev Backend (Golang) - O Guardião dos Dados
-![Guardião dos dados](https://digitalsys-cdn.nyc3.cdn.digitaloceanspaces.com/desafio-estagio/guardiao-dados-2.png)
+## Rodando a api
+1. Clone o repositório do GitHub em sua máquina local:
 
-#### Contexto
-Você é um Guardião dos Dados, encarregado de desenvolver uma infraestrutura segura para gerenciar as informações cruciais do reino. Utilizando Golang, juntamente com Gin Gonic e GORM, você deverá criar uma API RESTful que administre as missões de uma guilda de aventureiros.
+```bash
+git clone https://github.com/Warier/desafio-estagio.git
+```
 
-#### Missão
-Desenvolver uma API RESTful usando **Gin Gonic** que permita operações CRUD em missões de aventura. Utilize **GORM** para a interação com o banco de dados, facilitando a persistência e recuperação dos dados.
 
-##### Requisitos Específicos
-- **Framework:** Utilize Gin Gonic para facilitar a criação da API.
-- **ORM:** Use GORM para manipulação dos dados no banco de dados.
-- **Autenticação:** Implemente autenticação básica para proteger a API.
-- **Documentação:** Documente os endpoints e exemplos de uso da API.
-- **Bônus:** Implemente testes unitários e de integração.
+Navegue até o diretório do projeto:
 
-### Dev Frontend (ReactJS/React Native) - O Artesão de Ilusões
-![Artesão das Ilusões](https://digitalsys-cdn.nyc3.cdn.digitaloceanspaces.com/desafio-estagio/artesao-ilusoes-2.png)
-#### Contexto
-Como um Artesão de Ilusões, você cria ambientes e objetos encantadores. Sua tarefa é desenvolver uma aplicação frontend que apresente um catálogo de aventuras e personagens de um RPG, demonstrando suas habilidades em criar interfaces ricas e interativas.
+```bash
+cd desafio-estagio
+```
 
-#### Missão
-Desenvolver uma aplicação frontend que exiba uma lista de missões e personagens, utilizando ReactJS para web ou React Native para mobile. A aplicação deve permitir ao usuário visualizar detalhes de cada missão e personagem, incluindo descrição, dificuldade e status.
 
-##### Requisitos Específicos
-- Utilizar ReactJS para web ou React Native para mobile.
-- A aplicação deve ser responsiva e oferecer uma boa experiência de usuário em diferentes dispositivos.
-- Implementar navegação entre diferentes telas ou seções da aplicação.
-- **Bônus:** Utilizar animações ou transições para melhorar a interatividade da interface.
+Certifique-se de ter o PostgreSQL instalado e em execução em sua máquina.
 
-## Orientações para Submissão
 
-1. **Fork este repositório** para sua conta no GitHub.
-2. **Crie uma branch específica** para o desafio que você está desenvolvendo (`backend-golang` ou `frontend-react`).
-3. **Desenvolva o projeto** seguindo os requisitos do desafio escolhido.
-4. **Documente** no `README.md` as instruções de como configurar e executar seu projeto, além de exemplos de uso da API ou da interface, conforme aplicável.
-5. **Abra um Pull Request** com suas alterações, incluindo no título do PR o desafio que você está submetendo e no corpo do PR qualquer observação ou comentário relevante sobre seu projeto.
+2. No .env na raiz do projeto adicione as variáveis de ambiente, substituindo os valores conforme sua configuração:
 
-### Critérios de Avaliação
 
-- **Qualidade do código:** legibilidade, organização, aplicação de boas práticas.
-- **Funcionalidade:** todas as funcionalidades requisitadas devem estar implementadas e funcionando conforme esperado.
-- **Documentação:** clareza nas instruções de configuração e uso do projeto.
-- **Extras:** qualquer funcionalidade ou característica extra será considerada positivamente.
+3. Instale as dependências do projeto
 
-### Deadline (Prazo de entrega)
-- **Não existe prazo determinado para a entrega do projeto:** entretanto, recomendamos que faça-o tão logo possível,  com certeza vamos ler e avaliar seu código, mas suponhamos que você só consiga nos enviar seu teste após outros 5 candidatos serem aprovados no teste e nas demais fases, isso significa que seu teste precisará ser MUITO bom para abrirmos uma exceção e colocar você como o nosso "sexto elemento" =) 
 
-Boa sorte! Estamos ansiosos para ver as soluções incríveis que você irá criar.
+```bash
+go mod tidy
+```
+
+4. Execute o arquivo de migração para criar as tabelas no banco de dados:
+
+```bash
+go run migrate/migrate.go
+```
+
+
+5. Inicie o servidor da API:
+
+```bash
+go run cmd/server/main.go
+```
+
+
+Após seguir esses passos, o servidor da API estará em execução localmente em http://localhost:0000 na porta escolhida no .env. Você pode acessar os endpoints da API conforme documentado para criar, ler, atualizar e excluir missões de aventura ou criar usuários.
+
+## Usando a api
+
+Após iniciar a api, para que seja possível manipular as missões da guilda é necessário criar um usuário com um nome que receberá uma chave de acesso aos demais serviços da api, como demonstrado na rota a seguir:
+
+
+### POST /usercreate
+
+Para criar um usuário e assim receber uma chave de acesso, é necessário enviar um JSON formatado com o nome que será utilizado
+```json
+{
+"name" : "xxxx"
+}
+```
+
+Com isso feito, caso não haja erros será recebido o JSON com a seguinte resposta:
+```json
+
+{
+"User": {
+"ID": 19,
+"CreatedAt": "2024-02-13T00:09:38.16216655-03:00",
+"UpdatedAt": "2024-02-13T00:09:38.16216655-03:00",
+"DeletedAt": null,
+"Name": "xxxx",
+"Key": "4962666f885a90ad1c44ed83eb668684"
+}
+}
+```
+
+Nessa resposta será possível adquirir a chave de acesso para as proximas rotas, como foi dada a seguinte:  "4962666f885a90ad1c44ed83eb668684"
+
+### POST /missioncreate
+
+Nessa rota será possível fazer a criação de novas missões para a guilda. Primeiramente será necessário adicionar a chave após a rota para que seja possível autenticar o usuário, como no exemplo a seguir:
+
+`http://localhost:0000/missioncreate/4962666f885a90ad1c44ed83eb668684`
+
+Para criar a missão, será necessário colocar o nome e a descrição como no exemplo:
+
+```json
+
+{
+  "Name" : "missão xxxx",
+  "Description": "xxxxxx  xxxxxx xxxxx"
+}
+```
+
+Com isso feito, caso não haja erros será recebido o JSON com a seguinte resposta:
+
+```json
+{
+  "mission": {
+    "ID": 10,
+    "CreatedAt": "2024-02-13T00:22:11.984891076-03:00",
+    "UpdatedAt": "2024-02-13T00:22:11.984891076-03:00",
+    "DeletedAt": null,
+    "Name": "missão xxxx",
+    "Description": "xxxxxx  xxxxxx xxxxx"
+  }
+}
+```
+
+### GET /missionsearch
+
+Nessa rota será possível fazer a busca de missões criadas para a guilda. Primeiramente será necessário adicionar o ID da missão que deseja receber e após isso a chave  para que seja possível autenticar o usuário, como no exemplo a seguir:
+
+`http://localhost:0000/missionsearch/10/4962666f885a90ad1c44ed83eb668684`
+
+
+Com isso feito, caso não haja erros será recebido o JSON com a missão pesquisada:
+
+```json
+{
+  "mission": {
+    "ID": 10,
+    "CreatedAt": "2024-02-13T00:22:08.451888-03:00",
+    "UpdatedAt": "2024-02-13T00:22:08.451888-03:00",
+    "DeletedAt": null,
+    "Name": "missão xxxx",
+    "Description": "xxxxxx  xxxxxx xxxxx"
+  }
+}
+```
+### POST /missionupdate
+
+Nessa rota será possível fazer a atualização das missões para a guilda. Primeiramente será necessário adicionar o ID da missão que deseja atualizar e após isso a chave  para que seja possível autenticar o usuário, como no exemplo a seguir:
+
+`http://localhost:0000/missionupdate/9/4962666f885a90ad1c44ed83eb668684`
+
+Para atualizar a missão, será necessário colocar o nome e a descrição como no exemplo:
+
+```json
+
+{
+  "Name" : "missão yyyy",
+  "Description": "yyyyyy yyyyy yyyyy"
+}
+```
+
+Com isso feito, caso não haja erros será recebido o JSON com a seguinte resposta:
+
+```json
+{
+  "mission": {
+    "ID": 9,
+    "CreatedAt": "2024-02-13T00:22:09.917345-03:00",
+    "UpdatedAt": "2024-02-13T00:36:02.395192134-03:00",
+    "DeletedAt": null,
+    "Name": "missão yyyy",
+    "Description": "yyyyyy yyyyy yyyyy"
+  }
+}
+```
+
+### GET /missiondelete
+
+Nessa rota será possível excluir uma missão da guilda. Primeiramente será necessário adicionar o ID da missão que deseja excluir e após isso a chave  para que seja possível autenticar o usuário, como no exemplo a seguir:
+
+`http://localhost:0000/missiondelete/10/4962666f885a90ad1c44ed83eb668684`
+
+
+Com isso feito, caso não haja erros será recebido o JSON com a seguinte resposta:
+
+```json
+{
+  "message": "Missão excluída com sucesso"
+}
+```
+
+### GET /missionindex
+
+Nessa rota será possível ver todas as missões da guilda. Primeiramente será necessário adicionar  a chave  para que seja possível autenticar o usuário, como no exemplo a seguir:
+
+`http://localhost:0000/missionindex/4962666f885a90ad1c44ed83eb668684`
+
+
+Com isso feito, caso não haja erros será recebido o JSON com a seguinte resposta com todas as missões:
+
+```json
+[
+    {
+  "ID": 7,
+  "CreatedAt": "2024-02-13T00:22:06.90017-03:00",
+  "UpdatedAt": "2024-02-13T00:22:06.90017-03:00",
+  "DeletedAt": null,
+  "Name": "missão xxxx",
+  "Description": "xxxxxx  xxxxxx xxxxx"
+},
+{
+"ID": 8,
+"CreatedAt": "2024-02-13T00:22:08.451888-03:00",
+"UpdatedAt": "2024-02-13T00:22:08.451888-03:00",
+"DeletedAt": null,
+"Name": "missão xxxx",
+"Description": "xxxxxx  xxxxxx xxxxx"
+},
+{
+"ID": 9,
+"CreatedAt": "2024-02-13T00:22:09.917345-03:00",
+"UpdatedAt": "2024-02-13T00:36:02.395192-03:00",
+"DeletedAt": null,
+"Name": "missão yyyy",
+"Description": "yyyyyy yyyyy yyyyy"
+}
+]
+```
+
