@@ -1,27 +1,50 @@
 .hero {
-  background-color: var(--preto-dois);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  height: 100vh;
-  font-family: var(--font-kufam);
+  justify-content: space-between;
+  font-family: var(--space-mono);
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
 }
 
 .titulo {
   color: #fff;
-  font-size: 6rem;
+  font-size: 3rem;
   font-weight: 400;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .subtitulo {
   color: #fff;
-  font-size: 4rem;
+  font-size: 0.90rem;
   font-weight: 400;
-  text-align: center;
+  text-align: start;
 }
 
-.rpg {
-  color: red;
+.verde {
+  color: #329d6f;
+}
+
+.roxo {
+    color: var(--roxo);   
+}
+
+
+
+.conteudo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.botao {
+    margin-top: 4rem;
 }

@@ -6,14 +6,36 @@
     height: 10vh;
     width: 100%;
     background-color: #111111;
+    box-shadow: 0px 0px 15px 0px #000000;
+}
+
+.dropdown{
+    display: flex;
+    align-items: start;
+    justify-content: space-around;
+    width: 10%;
+}
+
+.link {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 20%;    
+}
+
+.links {
+    font-family: var(--space-mono);
 }
 
 .logo{
-    height: 3rem;
+    padding: 0 4rem;
+    height: 2rem;
     width: auto;
 }
 
 .icon {
+    align-self: center;
     height: 32px;
     width: 32px;
 }

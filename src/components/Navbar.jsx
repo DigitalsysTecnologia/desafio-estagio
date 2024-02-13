@@ -1,23 +1,28 @@
 import React from "react";
 import Styles from "../style/Navbar/navbar.module.css";
 import Logo from "../assets/logo.svg";
-import Menu from "../assets/menu.svg";
-import User from "../assets/user.svg";
+import Sun from "../assets/sun.svg";
 import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <nav className={Styles.navbar}>
-      <button>
-        <img className={Styles.icon} src={Menu} alt="" />
-      </button>
-
       <Link to="/">
         <img className={Styles.logo} src={Logo} alt="" />
       </Link>
-      <a href="">
-        <img className={Styles.icon} src={User} alt="" />
-      </a>
+      <div className={Styles.link}>
+        <Link to="/catalog">
+          <a  href="">
+            <p className={Styles.links}>Catalog</p>
+          </a>
+        </Link>
+        <Link to="/about">
+          <a href="">
+            <p className={Styles.links} >About</p>
+          </a>
+        </Link>
+        <img className={Styles.icon} src={Sun} alt="" />
+      </div>
     </nav>
   );
 }

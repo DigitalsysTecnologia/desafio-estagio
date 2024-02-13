@@ -5,18 +5,23 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #23263a;
 
   --preto-um: #111111;
 
-  --preto-dois: #292929;
+  --preto-dois: #23263a;
 
   --roxo: #8035BB;
   
-  --font-kufam: "Kufam", sans-serif;
-  
-  
+  --space-mono: "Space Mono", monospace;
 
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: #fff;
 }
 
 body {

@@ -2,12 +2,13 @@
 .button {
   background-color: var(--roxo);
   border: 0 solid #E5E7EB;
+  border-radius: 6px;
   box-sizing: border-box;
   color: #fff;
   display: flex;
-  font-family: var(--font-kufam);
+  font-family: var(--space-mono);
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 500;
   justify-content: center;
   line-height: 1.75rem;
   padding: .75rem 1.65rem;
@@ -28,15 +29,16 @@
 .button:after {
   content: '';
   position: absolute;
-  border: 1px solid #fff;
+  border: 1.9px solid #fff;
   bottom: -10px;
+  border-radius: 6px;
   width: calc(100% + 20px);
   height: calc(100% + 20px);
 }
 
 @media (min-width: 768px) {
   .button {
-    padding: 1.5rem 4rem;
+    padding: 1.8rem 5rem;
     font-size: 3rem;
     font-weight: lighter;
   }
