@@ -15,12 +15,8 @@
 <li>Visualização de informações em apenas uma tela</li>
 </ul><h2>Setup</h2>
 <hr><p>Pré Requisitos:
-Node.js &gt; 12 e npm
-Watchman
-Xcode 12
-Cocoapods 1.10.1
-JDK &gt; 11
-Android Studio and Android SDK</p>
+Node.js &gt; 12 e npm, 
+Watchman, Xcode 12, Cocoapods 1.10.1, JDK &gt; 11, Android Studio and Android SDK</p>
 <hr><p>Bibliotecas React Native:</p>
 <p>react-navigation</p>
 <p>react-native-config</p>
