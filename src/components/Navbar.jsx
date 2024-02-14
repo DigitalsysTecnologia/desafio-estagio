@@ -1,7 +1,6 @@
 import React from "react";
 import Styles from "../style/Navbar/navbar.module.css";
 import Logo from "../assets/logo.svg";
-import Sun from "../assets/sun.svg";
 import { Link } from "react-router-dom";
 
 function Navbar() {
@@ -11,17 +10,23 @@ function Navbar() {
         <img className={Styles.logo} src={Logo} alt="" />
       </Link>
       <div className={Styles.link}>
-        <Link to="/catalog">
+        <Link to="/missao">
           <a  href="">
-            <p className={Styles.links}>Catalog</p>
+            <p className={Styles.links}>Missões</p>
           </a>
         </Link>
-        <Link to="/about">
+        <Link to="/herois">
           <a href="">
-            <p className={Styles.links} >About</p>
+            <p className={Styles.links} >Personagens</p>
           </a>
         </Link>
-        <img className={Styles.icon} src={Sun} alt="" />
+        <Link to="/historia">
+            <a href="">
+                <p className={Styles.links}>
+                    História
+                </p>
+            </a>
+        </Link>
       </div>
     </nav>
   );

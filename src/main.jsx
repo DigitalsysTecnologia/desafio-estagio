@@ -6,6 +6,7 @@ import App from "./App";
 import Catalog from "./Pages/Catalog";
 import Herois from "./Pages/Herois";
 import Missao from "./Pages/Missao";
+import Historia from "./Pages/Historia";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
     path: "/missao",
     element: <Missao></Missao>
   },
+  {
+    path: "/historia",
+    element: <Historia></Historia>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

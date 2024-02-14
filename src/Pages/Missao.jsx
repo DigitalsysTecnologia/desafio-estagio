@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useState } from "react";
+import Styles from "../style/Herois/herois.module.css";
+import Bubble from "../components/Bubble";
+import Navbar from "../components/Navbar";
+import Card from "../components/Card";
+function Missoes() {
 
-function Missao() {
+
   return (
-    <div>Missao</div>
-  )
+    <>
+      <Navbar></Navbar>
+      
+    </>
+  );
 }
 
-export default Missao
+export default Missoes;

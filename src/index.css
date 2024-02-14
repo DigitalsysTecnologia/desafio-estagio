@@ -11,7 +11,7 @@
 
   --preto-dois: #23263a;
 
-  --roxo: #8035BB;
+  --roxo: #8035bb;
   
   --space-mono: "Space Mono", monospace;
 
@@ -21,7 +21,10 @@
 * {
   margin: 0;
   padding: 0;
-  color: #fff;
+}
+
+a{
+  color: white;
 }
 
 body {
