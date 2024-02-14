@@ -1,0 +1,25 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/PixelifySans-Bold.ttf",
+      "sha1": "5a099af48ac82abb545b2aa6e18196ee600bdbe9"
+    },
+    {
+      "path": "assets/fonts/PixelifySans-Medium.ttf",
+      "sha1": "a263d2ddd97921f3c758744eee58d1fe2249dbd2"
+    },
+    {
+      "path": "assets/fonts/PixelifySans-Regular.ttf",
+      "sha1": "6823aad854133e5984858ddcb5c8b310a856a850"
+    },
+    {
+      "path": "assets/fonts/PixelifySans-SemiBold.ttf",
+      "sha1": "6d367047aad93dd5c6d9ddaf7ad96076d67bea2c"
+    },
+    {
+      "path": "assets/fonts/ProtestRevolution-Regular.ttf",
+      "sha1": "5bde6f8c504048d82c496906b125ae3f621ddc07"
+    }
+  ]
+}
