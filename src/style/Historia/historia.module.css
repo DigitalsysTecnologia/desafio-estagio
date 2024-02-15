@@ -1,0 +1,75 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    /* justify-content: space-evenly; */
+    font-family: var(--space-mono);
+    width: 70%;
+}
+
+.container p{
+  font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: start;
+    /* color: #000; */
+    /* margin: 1rem 0; */
+
+}
+
+.historia {
+  margin-top: 2rem;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.container h2 {
+    margin: 1rem 0;
+    color: #329d6f ;
+    text-align: center;
+}
+
+.container h1 {
+    /* color: var(--roxo); */
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 1rem 0;
+}
+
+
+.gameLogo {
+    position: relative;
+    font-size: 2rem;
+    color: #329d6f;
+  }
+  
+  .text {
+    color: var(--roxo);
+  }
+  
+  
+  .gameLogo span.second {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #242424;
+    border-left: 2px solid var(--roxo);
+    animation: animate 2s steps(12) infinite;
+  
+  }
+  
+  @keyframes animate {
+    40%, 60% {
+      left: 100%;
+  
+    }100%{
+      left: 0;
+    }
+  }

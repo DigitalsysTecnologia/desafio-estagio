@@ -5,11 +5,11 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #23263a;
+
 
   --preto-um: #111111;
 
-  --preto-dois: #23263a;
+  --preto-dois: #242424;
 
   --roxo: #8035bb;
   
@@ -21,6 +21,11 @@
 * {
   margin: 0;
   padding: 0;
+  list-style: none;
+}
+
+body {
+  overflow-y: auto;
 }
 
 a{

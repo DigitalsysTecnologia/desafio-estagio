@@ -4,17 +4,16 @@ import Styles from "../style/Hero/button.module.css";
 function Button(props) {
   return (
     <>
-      <a href="">
+      <div className={Styles.container}>
         <button
           className={Styles.button}
           style={{
-            backgroundColor: props.BGcor ? props.BGcor : "#8035BB",
             color: props.cor ? props.cor : "#fff",
           }}
         >
-          {props.nome ? props.nome : "Clique"}
+          <span>{props.nome ? props.nome : "Clique"}</span>
         </button>
-      </a>
+      </div>
     </>
   );
 }

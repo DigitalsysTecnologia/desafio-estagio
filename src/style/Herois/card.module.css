@@ -8,37 +8,63 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 31rem;
-    width: 22rem;
-    background-color: #797c9f;
+    height: 32rem;
+    width: 20rem;
+    background-color: #fff;
     border-radius: 10px;
-    /* border: #000 2px solid; */
-    box-shadow: 5px 5px 5px #000;
+    box-shadow: 1px 5px 5px #000;
 }
 
 .textos {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     color: #000;
+    width: 100%;
+    text-align: center;
+}
+
+.nome {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color:var(--roxo);
+    padding: 0 2.5rem;
+
 }
 
 .descricao {
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 500;
     color: #000;
-    text-align: start;
-    padding: 0 2rem;
+    text-align: center;
+    padding: 0 3rem;
+    margin-bottom: 1rem;
 
+}
+
+.icon {
+    height: 24px;
+    width: auto;
+}
+
+.classes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 400;
 }
 
 .info {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    font-weight: 700;
-    padding: 1rem;
-    margin-bottom: 0.75rem;
+    align-items: center;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.textos {
+    font-size: 1rem;
 }
 
 .info span {
@@ -48,26 +74,26 @@
 .imgCard {
     height: auto;
     width: 100%;
-    max-width: 22rem;
     object-fit: cover; 
-    align-self: center;
     border: none;
-    border-radius: 5px;
+    border-radius:  10px 10px 0px 0px;
 }
 
 .container {
-    position: relative;
     width: 100%;
     max-width: 400px;
 }
 
-.image {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.dificuldade {
+.dificuldadeImg {
     height: auto;
     max-width: 100px;
+}
+
+.dificuldadeTexto {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #000;
+    text-align: center;
+    /* padding: 0 3rem; */
+    /* margin-bottom: 1rem; */
 }

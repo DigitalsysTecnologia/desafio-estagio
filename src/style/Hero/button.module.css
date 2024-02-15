@@ -1,6 +1,5 @@
-
 .button {
-  background-color: var(--roxo);
+  background-color: var(--preto-dois);
   border: 0 solid #E5E7EB;
   border-radius: 6px;
   box-sizing: border-box;
@@ -23,8 +22,8 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  transition: all 0.3s ease-in-out; /* Adiciona transição para todas as propriedades */
 }
-
 
 .button:after {
   content: '';
@@ -33,7 +32,14 @@
   bottom: -10px;
   border-radius: 6px;
   width: calc(100% + 20px);
-  height: calc(100% + 20px);
+  height: calc(100% + 17px);
+  transition: all 0.3s ease-in-out; 
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--roxo);
+  color: #fff;
 }
 
 @media (min-width: 768px) {

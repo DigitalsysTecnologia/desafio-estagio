@@ -6,11 +6,44 @@
   font-family: var(--space-mono);
 }
 
+.gameLogo {
+  position: relative;
+  font-size: 2rem;
+  color: #329d6f;
+}
+
+.text {
+  color: var(--roxo);
+}
+
+
+.gameLogo span.second {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #242424;
+  border-left: 2px solid var(--roxo);
+  animation: animate 2s steps(12) infinite;
+
+}
+
+@keyframes animate {
+  40%, 60% {
+    left: 100%;
+
+  }100%{
+    left: 0;
+  }
+}
+
 .home {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
 }
 
 .titulo {
@@ -23,9 +56,20 @@
 
 .subtitulo {
   color: #fff;
-  font-size: 0.90rem;
+  font-size: 0.9rem;
   font-weight: 400;
   text-align: start;
+}
+
+.conteudo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.botao {
+  margin-top: 4rem;
 }
 
 .verde {
@@ -33,16 +77,5 @@
 }
 
 .roxo {
-    color: var(--roxo);   
-}
-
-.conteudo {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.botao {
-    margin-top: 4rem;
+  color: var(--roxo);
 }

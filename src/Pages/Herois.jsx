@@ -8,28 +8,18 @@ import personagens from "../helpers/data/personagensData.js";
 function Herois() {
   const [selectedId, setSelectedId] = useState(0);
 
-
   const handleBubbleClick = (id) => {
     setSelectedId(id);
-    console.log('Bubble clicado:', id);
+    console.log("Bubble clicado:", id);
   };
 
   return (
-    <>
+    <div className={Styles.herois}>
       <Navbar></Navbar>
-      <div className={Styles.herois}>
-        <div className={Styles.up}>
-          <div>
-            <h1>Herois ⚔️🖱️</h1>
-          </div>
-          <div>
-            <h1>
-              <span className={Styles.roxo}>DEV</span>
-              <span className={Styles.verde}>RPG</span>
-            </h1>
-          </div>
+        <div className={Styles.titulo}>
+          <h1>Personagens <span className="roxo">DEV</span><span className="verde">RPG</span></h1>
         </div>
-        <div className={Styles.down}>
+        <div className={Styles.container}>
           <div className={Styles.grid}>
             {personagens.map((personagem) => (
               <Bubble
@@ -40,21 +30,24 @@ function Herois() {
               ></Bubble>
             ))}
           </div>
-          <div>
+          <div className={Styles.cardContainer}>
             {selectedId !== null && (
               <Card
+              
                 key={selectedId}
                 nome={personagens[selectedId].nome}
                 img={personagens[selectedId].img}
                 descrição={personagens[selectedId].descrição}
                 nivel={personagens[selectedId].nivel}
                 class={personagens[selectedId].classe}
+                dificuldadeTexto={personagens[selectedId].nivelTexto}
+                icon={personagens[selectedId].classeIcon}
               />
             )}
           </div>
         </div>
       </div>
-    </>
+    
   );
 }
 
