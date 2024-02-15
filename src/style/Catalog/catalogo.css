@@ -18,6 +18,7 @@
   margin-top: 2%;
   text-align: center;
   font-family: var(--space-mono);
+  font-weight: lighter;
 }
 
 .title {
@@ -30,19 +31,15 @@
   align-items: center;
   justify-content: center;
   height: 70vh;
+  width: 100%;
+  max-width: 80%;
+  margin: 0 auto;
   overflow: hidden;
 }
 
 
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 80%;
-  margin: 0 auto;
-}
+
 .card_outer {
   display: grid;
   grid-template-columns: auto auto auto auto;
@@ -185,5 +182,26 @@
   .card:focus-within .content,
   .card:focus-within .content > *:not(.title) {
     transition-duration: 0s;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .card_outer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    height: 90%;
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+    overflow: auto;
+  }
+  
+  .card {
+    width: 100%;
+    min-height: 300px;
+    margin-bottom: 1rem;
   }
 }

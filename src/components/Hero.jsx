@@ -19,7 +19,7 @@ function Hero() {
                 <span className={Styles.second}></span>
               </span>
             </h1>
-            <div>
+            <div className={Styles.subtituloContainer}>
               <h2 className={Styles.subtitulo}>
                 <span className={Styles.verde}>1. </span>Bem-vindo ao emocionante
                 mundo do <span className={Styles.verde}>DEV RPG</span>

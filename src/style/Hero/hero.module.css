@@ -79,3 +79,31 @@
 .roxo {
   color: var(--roxo);
 }
+
+
+
+@media screen and (max-width: 768px) {
+  .heroImage {
+    display: none;
+  }
+
+  .titulo {
+    font-size: 2rem;
+  }
+
+  .home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 2rem;
+    height: 65vh;
+  }
+
+  .subtituloContainer {
+    margin: 1rem 0rem;
+  }
+
+  .second {
+    display: none;
+  }
+}

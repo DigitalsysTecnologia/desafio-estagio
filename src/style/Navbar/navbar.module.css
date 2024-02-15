@@ -38,3 +38,25 @@
     height: 32px;
     width: 32px;
 }
+
+@media screen and (max-width: 768px) {
+    
+    .link {
+        display: none;
+    }
+    
+    .links {
+        display: none;
+    }
+    
+    .logo{
+        padding: 0 4rem;
+        height: 2rem;
+        width: auto;
+    }
+    
+    .icon {
+        display: none;
+    }
+    
+}

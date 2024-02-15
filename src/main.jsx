@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import App from "./App";
-import Catalog from "./Pages/Catalog";
+import Catalog from "./Pages/Catalogo";
 import Herois from "./Pages/Herois";
 import Missao from "./Pages/Missao";
 import Historia from "./Pages/Historia";

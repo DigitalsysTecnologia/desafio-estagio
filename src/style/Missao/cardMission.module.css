@@ -46,10 +46,12 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: start;
-    font-weight: 300;
     margin-bottom: 10px;
 }
 
+.title p {
+    font-weight: 600;
+}
 
 .textos {
     display: flex;

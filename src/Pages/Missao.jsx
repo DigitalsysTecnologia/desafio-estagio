@@ -10,7 +10,7 @@ function Missoes() {
       <div className={Styles.missao}>
         <div className={Styles.header}>
           <div>
-            <h1>
+            <h1 className={Styles.titulo}>
               Missões <span className="roxo"> DEV</span>
               <span className="verde">RPG</span>
             </h1>

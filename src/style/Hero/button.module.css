@@ -1,16 +1,16 @@
 .button {
   background-color: var(--preto-dois);
-  border: 0 solid #E5E7EB;
+  border: 0 solid #e5e7eb;
   border-radius: 6px;
   box-sizing: border-box;
   color: #fff;
   display: flex;
   font-family: var(--space-mono);
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 3rem;
+  font-weight: lighter;
   justify-content: center;
   line-height: 1.75rem;
-  padding: .75rem 1.65rem;
+  padding: 1.8rem 5rem;
   position: relative;
   text-align: center;
   text-decoration: none #000000 solid;
@@ -26,14 +26,14 @@
 }
 
 .button:after {
-  content: '';
+  content: "";
   position: absolute;
   border: 1.9px solid #fff;
   bottom: -10px;
   border-radius: 6px;
   width: calc(100% + 20px);
   height: calc(100% + 17px);
-  transition: all 0.3s ease-in-out; 
+  transition: all 0.3s ease-in-out;
 }
 
 .button:hover,
@@ -42,10 +42,12 @@
   color: #fff;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .button {
-    padding: 1.8rem 5rem;
-    font-size: 3rem;
-    font-weight: lighter;
+    background-color: var(--roxo);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 6rem;
   }
+  
 }
