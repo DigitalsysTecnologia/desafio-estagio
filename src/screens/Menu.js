@@ -5,7 +5,7 @@ const Menu = ({navigation}) => {
     return(
         <View style={styles.View}>
         <Video source={require('../../assets/image/backg2.mp4')} rate={1.0} resizeMode={"cover"} repeat style={styles.video} />
-            <Image style={styles.Titulo} source={require('../../assets/image/title.png')}/>
+            <Image source={require('../../assets/image/title.png')}/>
             <TouchableOpacity style={styles.Button} onPress={()=>navigation.navigate('SelectMissao')} >
                 <Text style={styles.ButtonTxt} >Começar Aventura</Text>
             </TouchableOpacity>
@@ -13,9 +13,6 @@ const Menu = ({navigation}) => {
     );
 }
 const styles = StyleSheet.create({
-  Titulo : {
-    width: 380,
-  },
     video : {
       position: 'absolute',
       top: 0,
