@@ -1,59 +1,35 @@
-# Desafio Técnico - Temática RPG
-
-Bem-vindos ao nosso processo seletivo para vagas de estágio em desenvolvimento! Estamos procurando talentos apaixonados por tecnologia e inovação, prontos para enfrentar desafios no mundo do desenvolvimento de software. Para tornar este processo mais interativo e divertido, elaboramos desafios técnicos inspirados no universo dos RPGs.
-
-### IMPORTANTE: Por favor, faça o teste com o maior capricho possível, visto que é através dos detalhes que poderemos avaliar sua experiência e senioridade
-
-## Desafios
-
-Abaixo você encontrará os desafios para dev backend e dev frontend, faça o teste que for mais confortável para você, note que o teste de frontend ainda inclui mais uma escolha: mobile ou web, ambos usando o framework React.
-
-### Dev Backend (Golang) - O Guardião dos Dados
-![Guardião dos dados](https://digitalsys-cdn.nyc3.cdn.digitaloceanspaces.com/desafio-estagio/guardiao-dados-2.png)
-
-#### Contexto
-Você é um Guardião dos Dados, encarregado de desenvolver uma infraestrutura segura para gerenciar as informações cruciais do reino. Utilizando Golang, juntamente com Gin Gonic e GORM, você deverá criar uma API RESTful que administre as missões de uma guilda de aventureiros.
-
-#### Missão
-Desenvolver uma API RESTful usando **Gin Gonic** que permita operações CRUD em missões de aventura. Utilize **GORM** para a interação com o banco de dados, facilitando a persistência e recuperação dos dados.
-
-##### Requisitos Específicos
-- **Framework:** Utilize Gin Gonic para facilitar a criação da API.
-- **ORM:** Use GORM para manipulação dos dados no banco de dados.
-- **Autenticação:** Implemente autenticação básica para proteger a API.
-- **Documentação:** Documente os endpoints e exemplos de uso da API.
-- **Bônus:** Implemente testes unitários e de integração.
-
-### Dev Frontend (ReactJS/React Native) - O Artesão de Ilusões
-![Artesão das Ilusões](https://digitalsys-cdn.nyc3.cdn.digitaloceanspaces.com/desafio-estagio/artesao-ilusoes-2.png)
-#### Contexto
-Como um Artesão de Ilusões, você cria ambientes e objetos encantadores. Sua tarefa é desenvolver uma aplicação frontend que apresente um catálogo de aventuras e personagens de um RPG, demonstrando suas habilidades em criar interfaces ricas e interativas.
-
-#### Missão
-Desenvolver uma aplicação frontend que exiba uma lista de missões e personagens, utilizando ReactJS para web ou React Native para mobile. A aplicação deve permitir ao usuário visualizar detalhes de cada missão e personagem, incluindo descrição, dificuldade e status.
-
-##### Requisitos Específicos
-- Utilizar ReactJS para web ou React Native para mobile.
-- A aplicação deve ser responsiva e oferecer uma boa experiência de usuário em diferentes dispositivos.
-- Implementar navegação entre diferentes telas ou seções da aplicação.
-- **Bônus:** Utilizar animações ou transições para melhorar a interatividade da interface.
-
-## Orientações para Submissão
-
-1. **Fork este repositório** para sua conta no GitHub.
-2. **Crie uma branch específica** para o desafio que você está desenvolvendo (`backend-golang` ou `frontend-react`).
-3. **Desenvolva o projeto** seguindo os requisitos do desafio escolhido.
-4. **Documente** no `README.md` as instruções de como configurar e executar seu projeto, além de exemplos de uso da API ou da interface, conforme aplicável.
-5. **Abra um Pull Request** com suas alterações, incluindo no título do PR o desafio que você está submetendo e no corpo do PR qualquer observação ou comentário relevante sobre seu projeto.
-
-### Critérios de Avaliação
-
-- **Qualidade do código:** legibilidade, organização, aplicação de boas práticas.
-- **Funcionalidade:** todas as funcionalidades requisitadas devem estar implementadas e funcionando conforme esperado.
-- **Documentação:** clareza nas instruções de configuração e uso do projeto.
-- **Extras:** qualquer funcionalidade ou característica extra será considerada positivamente.
-
-### Deadline (Prazo de entrega)
-- **Não existe prazo determinado para a entrega do projeto:** entretanto, recomendamos que faça-o tão logo possível,  com certeza vamos ler e avaliar seu código, mas suponhamos que você só consiga nos enviar seu teste após outros 5 candidatos serem aprovados no teste e nas demais fases, isso significa que seu teste precisará ser MUITO bom para abrirmos uma exceção e colocar você como o nosso "sexto elemento" =) 
-
-Boa sorte! Estamos ansiosos para ver as soluções incríveis que você irá criar.
+<h1>Digitalsys Legends</h1>
+<hr><p>Interface de um catálogo de missões e personagens de um RPG.</p><h2>Technologies Used</h2>
+<hr><ul>
+<li>JavaScript</li>
+</ul><ul>
+<li>NodeJS</li>
+</ul><ul>
+<li>React Native</li>
+</ul><h2>Features</h2>
+<hr><ul>
+<li>Visualização de missões e personagens por slider</li>
+</ul><ul>
+<li>UI Simples</li>
+</ul><ul>
+<li>Visualização de informações em apenas uma tela</li>
+</ul><h2>Setup</h2>
+<hr><p>Pré Requisitos:
+Node.js &gt; 12 e npm, 
+Watchman, Xcode 12, Cocoapods 1.10.1, JDK &gt; 11, Android Studio and Android SDK</p>
+<hr><p>Bibliotecas React Native:</p>
+<p>react-navigation</p>
+<p>react-native-config</p>
+<p>react-native-gesture-handler</p>
+<p>react-native-paper</p>
+<p>react-native-video</p><h5>Steps</h5><ul>
+<li>Instalação do React Native e Pré Requisitos seguindo o tutorial: https://reactnative.dev/docs/environment-setup</li>
+</ul><h2>Como Executar o Projeto</h2>
+<ul><li>É necessário que a máquina esteja devidamente preparada com os pré requisitos listados acima.</li>
+</ul>
+<ul><li>Quando estiver preparado para executar, abra o prompt de comando na pasta e digite "npm install", e logo após "npx react-native run-android"</li>
+</ul>
+</ul><h2>Usage</h2>
+<hr><p>O usuário não tem muitas opções diferentes de usabilidade, ele apenas pode navegar entre as missões e personagens.
+Ao iniciar o aplicativo, ele se encontra na tela inicial, e pode começar o jogo. Ao apertar no único botão da tela, ele é direcionado as várias missões que são disponibilizadas no slider, cada uma com sua descrição e nível de dificuldade. Ao selecionar a missão, ele é direcionado aos Heróis, que possuem sua descrição e atributos únicos. O aplicativo então não tem continuação, apesar de ter o botão "Selecionar", então o usuário pode apenas voltar duas vezes até a tela inicial.</p><h2>Contact</h2>
+<hr><p><span style="margin-right: 30px;"></span><a href="https://www.linkedin.com/in/nat%C3%A1lia-massari/"><img style="width: 10%;" target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"></a><span style="margin-right: 30px;"></span><a href="https://github.com/nataliamassari"><img style="width: 10%;" target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"></a></p>
