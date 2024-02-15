@@ -13,16 +13,16 @@ Certifique-se de ter o Node.js e npm instalados em sua máquina.
 
 1. Clone o repositório:
 
-```bash
+````bash
 git clone https://github.com/seu-usuario/desafio-estagio.git
 
 Navegue até o diretório do projeto:
 
 ```bash
 cd desafio-estagio
-```
+````
 
-3. Instale as dependências:
+2. Instale as dependências:
 
 ```bash
 npm install
@@ -56,9 +56,65 @@ O projeto estará disponível em [http://localhost:5173](http://localhost:5173).
 - [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
 - [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 
+## Funcionalidades do projeto
+
+### Lista de Personagens
+
+A lista de personagens é composta por cards que contém a imagem do personagem, o nome e uma breve descrição.
+
+Para adicionar um novo personagem, basta adicionar um novo objeto no array `personagens` no arquivo `src/helpers/data/personagensData.js`.
+
+Exemplo de objeto:
+
+```bash
+{
+
+    id: 0,
+    nome: "Nome do personagem",
+    img: url-da-imagem,
+    nivel: url-da-imagem,
+    nivelTexto: "Nível do personagem",
+    classe: "Classe do personagem",
+    classeIcon: "url-da-imagem",
+    descrição:
+      "Descrição do personagem",
+
+},
+```
+
+### Lista de Missões
+
+A lista de missões é composta por cards que contém o nome da missão e uma breve descrição.
+
+Para adicionar uma nova missão, basta adicionar um novo objeto no array `missoes` no arquivo `src/helpers/data/missoesData.js`.
+
+Exemplo de objeto:
+
+```bash
+{
+  id: 0,
+    title: "Nome da Missão",
+    img: url-da-imagem,
+    description:
+     "Exemplo de descrição"
+    nivel: "Nivel da missão",
+  },
+```
+
+## Processo de Desenvolvimento
+
+### Prototipagem
+
+Utilizei os primeiros dias do desafio para criar um protótipo da interface utilizando o Figma e pesquisando referencias de catálogos de jogos, RPGs e interfaces de jogos.
+
+### Desenvolvimento
+
+Após a prototipagem, iniciei o desenvolvimento da interface utilizando React e Vite. O desenvolvimento foi feito de forma iterativa, onde a cada nova funcionalidade implementada, eu testava e validava a mesma.
+
+### Arte
+
+Todas as artes do projeto foram geradas através de algumas IA's de geração de arte, como o DALL-E e o Artbreeder.
+
 ## Autor
 
 - [Yago](https://github.com/yagpdc)
-
-
-
