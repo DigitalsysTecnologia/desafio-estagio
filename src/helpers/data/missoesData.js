@@ -11,14 +11,14 @@ const missoes = [
     title: "Vila dos algoritmos mágicos",
     img: Terra,
     description:
-      "Este é um texto teste pq eu quero testar como o texto vai se encaixar com a caixa de missão",
+      "Explore a vila dos algoritmos e tente encontrar o artefato perdido que pode salvar o reino da programação!",
     nivel: "Facil",
   },
   {
     id: 1,
     title: "Aventura na Floresta de Debugging",
     img: Floresta,
-    description: "Este é um texto teste pq eu quero testar como o texto vai se encaixar com a caixa de missão",
+    description: "Encontre o caminho para sair da floresta de bugs!",
     nivel: "Facil",
   },
   {
@@ -26,7 +26,7 @@ const missoes = [
     title: "Exploração na caverna de bugs",
     img: Caverna,
     description:
-      "Este é um texto teste pq eu quero testar como o texto vai se encaixar com a caixa de missão",
+      "Derrote os bugs que habitam a caverna, encontre a causa principal do problema e fuja o mais rápido possível",
     nivel: "Medio",
   },
   {
@@ -34,7 +34,7 @@ const missoes = [
     title: "Resgate o prisioneiro do loop infinito",
     img: Prisão,
     description:
-      "Este é um texto teste pq eu quero testar como o texto vai se encaixar com a caixa de missão",
+      "Resgate o prisioneiro que está preso em um loop infinito e leve-o para a segurança!",
     nivel: "Medio",
   },
   {
@@ -42,7 +42,7 @@ const missoes = [
     title: "Sobreviva a torre dos objetos encantados",
     img: Torre,
     description:
-      "Este é um texto teste pq eu quero testar como o texto vai se encaixar com a caixa de missão",
+      "Sobreviva a torre dos objetos encantados e encontre o artefato mágico que pode salvar o reino da programação!",
     nivel: "Dificil",
   },
   {
@@ -50,7 +50,7 @@ const missoes = [
     title: "Jornada pelo vale das variáveis",
     img: Vale,
     description:
-      "Este é um texto teste pq eu quero testar como o texto vai se encaixar com a caixa de missão",
+      "Encontre o artefato mágico que pode salvar o reino da programação no vale das variáveis!",
     nivel: "Dificil",
   },
 ];
