@@ -1,0 +1,26 @@
+.container{
+    width: 100%;
+    padding: 8px 0;
+    background-color: rgba(79, 26, 104, 0.699);
+    margin-top: 100px;    
+}
+
+.container h1{
+    font-family: "MedievalSharp", cursive;
+    font-size: 3em;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.541);
+    color: aliceblue;
+}
+
+@media only screen and (min-width: 900px) {
+    .container{
+        padding: 20px 0;
+        margin-top: 200px;    
+    }
+
+    .container h1{
+        font-size: 5em;
+        text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.541);
+    }
+}
