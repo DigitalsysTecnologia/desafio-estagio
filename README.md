@@ -1,4 +1,4 @@
-# 🤟 TuntsRocks's Challenge 
+# 🤟 Dev Backend (Golang) - O Guardião dos Dados
 An API developed with golang, gin gonic and gorm, which is used to manage the missions of an adventurers guild.
 
 ### 👾 "How do I use this?" 
