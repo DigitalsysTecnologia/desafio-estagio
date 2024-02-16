@@ -42,9 +42,10 @@ First of all, you must clone this repository and have the Go language installed 
 
     ```
         {
-            "Name": "Adventurer name",
-            "EspecialHability": "his/her special hability",
+            "Name": "Adventurer name. Example: Alatar",
+            "EspecialHability": "his/her special hability. Example: extra strength",
             "Class": "his/her class. Example: warrior."
+            "Mission": "his/her mission. Example: fight with the enemy"
         }
     ```
 <ul>
