@@ -1,0 +1,97 @@
+.Adventures>h1 {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 2rem;
+    color: #f0f0f0;
+    text-shadow: 0 2px 4px rgb(0, 0, 0);
+}
+
+.Adventures>.Content {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10rem 4rem 10rem;
+    color: white;
+}
+
+
+.Adventures>.Content>img {
+    width: fit-content;
+    height: 100%;
+    max-height: 39rem;
+    aspect-ratio: 1/1;
+    border: 2px solid white;
+    object-fit: contain;
+}
+
+.Adventures>.Content>article {
+    width: 40%;
+}
+
+
+.Adventures>.Content>article>h2 {
+    font-size: 1.8rem;
+    text-shadow: 2px 2px 2px black;
+}
+
+.Adventures>.Content>article>h3 {
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 2px black;
+}
+
+.Adventures>.Content>article>p {
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 2px black;
+    margin: 1rem 0;
+}
+
+.Adventures>.Content>article>ul>li {
+    text-shadow: 2px 2px 2px black;
+    overflow: visible;
+    margin: 0.2rem 0 0 1rem;
+    font-size: 1.5rem;
+}
+
+@media screen and (min-width: 1600px) and (min-height: 800px) {
+    .Adventures>.Content {
+        margin: 3rem 10rem 0 10rem;
+    }
+
+    .Adventures>.Content>img {
+        max-height: 45rem;
+    }
+
+    .Adventures>.Content>article {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .Adventures>.Content {
+        margin: 0 10rem;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .Adventures>.Content>article {
+        width: 100%;
+    }
+
+    .Adventures>.Content>img {
+        margin: 2rem 0;
+        max-height: 30rem;
+    }
+
+}
+
+@media screen and (max-width: 960px) {
+    .Adventures>.Content {
+        margin: 0 2rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .Adventures>.Content>img {
+        max-height: 20rem;
+    }
+}
