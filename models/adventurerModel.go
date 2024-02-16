@@ -7,4 +7,5 @@ type Adventurer struct {
 	Name string
 	EspecialHability string
 	Class string
+	Mission string
 }

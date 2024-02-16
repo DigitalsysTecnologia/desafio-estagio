@@ -17,12 +17,13 @@ func CreateAdventurer(c *gin.Context){
 		Name string
 		EspecialHability string
 		Class string
+		Mission string
 	}
 
 	c.Bind(&body)
 
 	// Create an adventurer
-	adventurer := models.Adventurer{Name: body.Name, EspecialHability: body.EspecialHability, Class: body.Class}
+	adventurer := models.Adventurer{Name: body.Name, EspecialHability: body.EspecialHability, Class: body.Class, Mission: body.Mission}
 	result := initializers.DB.Create(&adventurer)
 
 	if result.Error != nil {
@@ -84,6 +85,7 @@ func AdvnturersUpdate(c *gin.Context) {
 		Name string
 		EspecialHability string
 		Class string
+		Mission string
 	}
 
 	c.Bind(&body)

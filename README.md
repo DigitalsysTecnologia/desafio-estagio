@@ -10,6 +10,9 @@ First of all, you must clone this repository and have the Go language installed 
     ```
      go mod tidy
     ```
+    ```
+      go run migrate/migrate.go
+    ```
   
     ```
       go run main.go
