@@ -1,59 +1,90 @@
-# Desafio Técnico - Temática RPG
+# 🤟 Dev Backend (Golang) - O Guardião dos Dados
+An API developed with golang, gin gonic and gorm, which is used to manage the missions of an adventurers guild.
 
-Bem-vindos ao nosso processo seletivo para vagas de estágio em desenvolvimento! Estamos procurando talentos apaixonados por tecnologia e inovação, prontos para enfrentar desafios no mundo do desenvolvimento de software. Para tornar este processo mais interativo e divertido, elaboramos desafios técnicos inspirados no universo dos RPGs.
+### 👾 "How do I use this?" 
+First of all, you must clone this repository and have the Go language installed in your machine. After this:
+<ul>
+  <li> Open the terminal on your code editor;</li>
+  <li>Type these commands: </li>
+  
+    ```
+     go mod tidy
+    ```
+    ```
+      go run migrate/migrate.go
+    ```
+  
+    ```
+      go run main.go
+    ```
+</ul>
 
-### IMPORTANTE: Por favor, faça o teste com o maior capricho possível, visto que é através dos detalhes que poderemos avaliar sua experiência e senioridade
+<p> After, go the the file ".env" and "main.go". There, you will find the PORT and the endpoints that were built: </p>
+<ul>
+    <li> /signup - send a JSON data to signup. Example: </li>
+</ul>
 
-## Desafios
+    ```
+        {
+            "Email": "fulano@gmail.com",
+            "Password": "Fulano@123!"
+        }
+    ```
+<ul>
+    <li> /login - use the same credentials that you used on the /signup. </li>
+</ul>
+<ul>
+    <li> /validate - it's a GET, so you just type "localhost:3001/validate" and see if you are authenticated. If you are, now you can access the adventurers routes! </li>
+</ul>
+<ul>
+    <li> [POST] /adventurers - Create an aventurer. Send a JSON data:  </li>
+</ul>
 
-Abaixo você encontrará os desafios para dev backend e dev frontend, faça o teste que for mais confortável para você, note que o teste de frontend ainda inclui mais uma escolha: mobile ou web, ambos usando o framework React.
+    ```
+        {
+            "Name": "Adventurer name. Example: Alatar",
+            "EspecialHability": "his/her special hability. Example: extra strength",
+            "Class": "his/her class. Example: warrior."
+            "Mission": "his/her mission. Example: fight with the enemy"
+        }
+    ```
+<ul>
+    <li> [GET] /adventurers - return all the adventurers.  </li>
+</ul>
+<ul>
+    <li> [GET] /adventurers/:id - return the adventurer with the id you typed.  </li>
+</ul>
+<ul>
+    <li> [PUT] /adventurers/:id - return the adventurer with the updated informations. Send a JSON file like you sent in the POST route before.  </li>
+</ul>
+<ul>
+    <li> [DELETE] /adventurers/:id - return the response with status 200, informing that the adventurer with the id you typed was succesfully deleted. </li>
+</ul>
 
-### Dev Backend (Golang) - O Guardião dos Dados
-![Guardião dos dados](https://digitalsys-cdn.nyc3.cdn.digitaloceanspaces.com/desafio-estagio/guardiao-dados-2.png)
+### 🔧 "What did you use to create this?" 
+I used the following commands to create this project:
 
-#### Contexto
-Você é um Guardião dos Dados, encarregado de desenvolver uma infraestrutura segura para gerenciar as informações cruciais do reino. Utilizando Golang, juntamente com Gin Gonic e GORM, você deverá criar uma API RESTful que administre as missões de uma guilda de aventureiros.
+    ```
+     go mod Documents/desafio-estagio
+     go get -u github.com/gin-gonic/gin
+     go get -u gorm.io/gorm
+     go get -u gorm.io/driver/postgres
+     go get github.com/joho/godotenv
+     go get -u golang.org/x/crypto/bcrypt
+     go get -u github.com/golang-jwt/jwt/v5
+     go install github.com/swaggo/swag/cmd/swag@latest
+    ```
+  
+### 🤔 "Why did you do this?" 
+I did this for a challenge in the selection process for an intern vacancy for the company digitalsys.
 
-#### Missão
-Desenvolver uma API RESTful usando **Gin Gonic** que permita operações CRUD em missões de aventura. Utilize **GORM** para a interação com o banco de dados, facilitando a persistência e recuperação dos dados.
+### 👩‍💻 "Are you the unic author?" 
+Yes, I used the google and youtube for references, but I did it by myself.
 
-##### Requisitos Específicos
-- **Framework:** Utilize Gin Gonic para facilitar a criação da API.
-- **ORM:** Use GORM para manipulação dos dados no banco de dados.
-- **Autenticação:** Implemente autenticação básica para proteger a API.
-- **Documentação:** Documente os endpoints e exemplos de uso da API.
-- **Bônus:** Implemente testes unitários e de integração.
+### 🍀 THANK YOU! 
+<p> 
+  Thanks for reading and enjoy this! You can follow me on my Linkedin Profile:
+  <a href = "https://www.linkedin.com/in/maria-fernanda-leonel-bertelli-252480257"> Maria Fernanda Leonel Bertelli! </a>
+</p>
 
-### Dev Frontend (ReactJS/React Native) - O Artesão de Ilusões
-![Artesão das Ilusões](https://digitalsys-cdn.nyc3.cdn.digitaloceanspaces.com/desafio-estagio/artesao-ilusoes-2.png)
-#### Contexto
-Como um Artesão de Ilusões, você cria ambientes e objetos encantadores. Sua tarefa é desenvolver uma aplicação frontend que apresente um catálogo de aventuras e personagens de um RPG, demonstrando suas habilidades em criar interfaces ricas e interativas.
-
-#### Missão
-Desenvolver uma aplicação frontend que exiba uma lista de missões e personagens, utilizando ReactJS para web ou React Native para mobile. A aplicação deve permitir ao usuário visualizar detalhes de cada missão e personagem, incluindo descrição, dificuldade e status.
-
-##### Requisitos Específicos
-- Utilizar ReactJS para web ou React Native para mobile.
-- A aplicação deve ser responsiva e oferecer uma boa experiência de usuário em diferentes dispositivos.
-- Implementar navegação entre diferentes telas ou seções da aplicação.
-- **Bônus:** Utilizar animações ou transições para melhorar a interatividade da interface.
-
-## Orientações para Submissão
-
-1. **Fork este repositório** para sua conta no GitHub.
-2. **Crie uma branch específica** para o desafio que você está desenvolvendo (`backend-golang` ou `frontend-react`).
-3. **Desenvolva o projeto** seguindo os requisitos do desafio escolhido.
-4. **Documente** no `README.md` as instruções de como configurar e executar seu projeto, além de exemplos de uso da API ou da interface, conforme aplicável.
-5. **Abra um Pull Request** com suas alterações, incluindo no título do PR o desafio que você está submetendo e no corpo do PR qualquer observação ou comentário relevante sobre seu projeto.
-
-### Critérios de Avaliação
-
-- **Qualidade do código:** legibilidade, organização, aplicação de boas práticas.
-- **Funcionalidade:** todas as funcionalidades requisitadas devem estar implementadas e funcionando conforme esperado.
-- **Documentação:** clareza nas instruções de configuração e uso do projeto.
-- **Extras:** qualquer funcionalidade ou característica extra será considerada positivamente.
-
-### Deadline (Prazo de entrega)
-- **Não existe prazo determinado para a entrega do projeto:** entretanto, recomendamos que faça-o tão logo possível,  com certeza vamos ler e avaliar seu código, mas suponhamos que você só consiga nos enviar seu teste após outros 5 candidatos serem aprovados no teste e nas demais fases, isso significa que seu teste precisará ser MUITO bom para abrirmos uma exceção e colocar você como o nosso "sexto elemento" =) 
-
-Boa sorte! Estamos ansiosos para ver as soluções incríveis que você irá criar.
+ 
