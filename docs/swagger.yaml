@@ -1,0 +1,88 @@
+info:
+  contact: {}
+paths:
+  /adventurers:
+    get:
+      description: Return all the adventurers
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: Adventurers
+      summary: Adventurers List
+    post:
+      description: Return the created adventurer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: the
+      summary: Create an adventurer
+  /adventurers/id:
+    delete:
+      description: Return no content because its just the adventurer especified by
+        the id that was deleted
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete an adventurer
+    get:
+      description: Return one adventurer by the Id
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: Just
+      summary: One Adventurer
+    put:
+      description: Return the adventurer especified by the id with the update informations
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: The
+      summary: Adventurers update
+  /login:
+    post:
+      description: Return if the user created is the same that is trying to login
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: Email
+      summary: Login
+  /signup:
+    post:
+      description: Return an user created
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: created
+      summary: Create an user
+  /validate:
+    get:
+      description: Return the access
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: can
+      summary: middleware that allows the user access the adveturers routes
+swagger: "2.0"
