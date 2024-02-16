@@ -1,0 +1,182 @@
+
+.cardPer{
+    width: 390px;
+    height: 410px;
+    background-image: url(../assets/fundoPapiroNovo.png);
+    margin: 45px;
+    display: grid;
+    grid-template-areas:
+    "imgP nome nome"
+    "imgP nome nome"
+    "imgP nivel nivel"
+    "imgP status status"
+    "imgP status status"
+    "imgP back back"
+    "imgP back back"
+    "imgP back back"
+    "imgP back back"    
+    "imgP back back"
+    ;
+}
+
+.fundoPer{
+    background-image: url(../assets/fundoPer.png);
+    grid-area: imgP;
+    min-width: 125px;
+    background-size: cover;
+    background-position: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgPer{
+    max-height: 290px;   
+    max-width: 110px;
+    padding: 0 5px;
+}
+
+.infosPer{
+    margin-top: 15px;
+    grid-area: nome;
+    display: flex;
+    align-items: stretch;
+}
+
+.infosPerNome{
+    flex: 1;
+    padding-left: 15px;
+    font-family: "Protest Revolution", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.origemPer{
+    max-width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 18px;
+}
+
+.nivelPerDiv{
+    grid-area: nivel;
+    font-size: 1.2em;
+    letter-spacing: 0.3em;
+    color: rgb(160, 85, 24);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+}
+
+.nivelPerDiv h2{
+    margin-top: -10px;
+    flex: 1;
+}
+
+.statusPer{
+    grid-area: status;
+    min-height: 60px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-evenly;
+    text-align: center;
+}
+.hp, .def, .mana{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-width: 65px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 600;
+    color: aliceblue;
+}
+
+.hp{
+    background-image: url(../assets/vida.svg);
+    
+}
+
+.def{
+    background-image: url(../assets/def.svg);
+}
+
+.mana{
+    background-image: url(../assets/mana.svg);
+}
+
+
+.infosPerNome p, .nivelPerDiv p, .statusPer p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.6em;
+    letter-spacing: 0em;
+    color: black;
+}
+
+.adicionalPer{    
+    margin-top: 10px;
+    margin-right: 20px;
+    grid-area: back;
+    max-height: 150px;    
+    max-width: 100%;
+    display: flex;
+    align-items: stretch;      
+    padding-bottom: 10px;  
+}
+
+.historiaPer{    
+    flex: 1;
+    max-height: 100%;
+    padding: 5px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    text-align: center;
+}
+
+.historiaPer::-webkit-scrollbar{
+    display: none;
+}
+
+.atributosPer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 40px;
+}
+
+.con, .for, .agi, .sab{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: aliceblue;
+    border-radius: 5px;
+}
+
+.atributosPer p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.4em ;
+}
+
+.con{    
+    background-color: rgb(231, 30, 16);
+}
+
+.for{    
+    background-color: rgb(196, 109, 10);
+}
+
+.agi{    
+    background-color: rgb(81, 184, 22);
+}
+
+.sab{    
+    background-color: rgb(25, 105, 197);
+}

@@ -1,0 +1,128 @@
+
+/*////////////////////// FECHADO /////////////////*/
+
+.missoesContainer{
+    margin: 40px;
+    height: 90px;
+    width: 360px;
+    background-image: url(../assets/fechado.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 15px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    justify-content: flex-end;
+    transition-duration: 0.5s;
+}
+
+.missoesContainer:hover, .missoesContainerAberto:hover{
+    cursor: pointer;
+    transform: scale(105%);
+}
+
+.nivelGeral{       
+    transition-delay: 0.15s;
+    height: 30px;
+}
+
+.nivelM1{       
+    transition-delay: 0.15s;
+    font-size: 2em;
+    color: black;
+    text-align: center;
+}
+
+.ttl {       
+    transition-delay: 0.15s;
+    flex: 1;
+    color: black; 
+    font-family: "MedievalSharp", cursive;
+    padding: 10px 10px;
+    font-size: 1em;
+    text-align: center;
+}
+
+.descr{           
+    transition-delay: 0.3s;
+    display: none;
+}
+
+.gold{       
+    transition-delay: 0.3s;
+    display: none;
+}
+
+/*////////////////////// ABERTO /////////////////*/
+
+.missoesContainerAberto{
+    margin: 40px;
+    height: 520px;
+    width: 360px;
+    background-image: url(../assets/aberto.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;    
+    transition-duration: 0.5s;
+}
+
+.nivelGeralA{       
+    transition-delay: 0.15s;
+    height: 10%;
+}
+
+.nivelM1A {       
+    transition-delay: 0.15s;
+    font-size: 3em;
+    color: black;
+    text-align: center;
+}
+
+.ttlA {       
+    transition-delay: 0.15s;
+    color: black;
+    font-family: "MedievalSharp", cursive;
+    padding: 15px 10px;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+.descrA{       
+    transition-delay: 0.3s;
+    color: black;  
+    padding: 0 50px;  
+    font-family: "Protest Revolution", sans-serif;
+    font-size: 1.1em;
+    text-align: center;
+    flex: 1;
+}
+
+.goldA{       
+    transition-delay: 0.3s;
+    padding-bottom: 40px;
+    padding-right: 30px;
+    font-size: 1.5em;
+    color: black;     
+    font-family: "MedievalSharp", cursive;
+    text-align: right;
+}
+
+@media only screen and (min-width: 900px){
+    
+    .descrA{       
+        transition-delay: 0.3s;
+        color: black;  
+        padding: 0 50px;  
+        font-family: "Protest Revolution", sans-serif;
+        font-size: 1.2em;
+        text-align: center;
+        flex: 1;
+    }
+    
+}

@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{    
+    max-width: 100vw;
+    height: 100vh;
+    background-image: url(./assets/fundoTavernaPeq.png);    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+@media only screen and (min-width: 900px){
+    body{
+        background-image: url(./assets/fundoTavernaGrande.png);
+    }
+}
