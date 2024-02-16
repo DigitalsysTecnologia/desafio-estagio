@@ -1,0 +1,76 @@
+.Character>.Content {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 10rem 0 10rem;
+    color: white;
+}
+
+
+.Character>.Content>img {
+    width: fit-content;
+    height: 100%;
+    max-height: 35rem;
+    object-fit: contain;
+    aspect-ratio: 1/1;
+    border: 2px solid white;
+}
+
+.Character>.Content>article {
+    width: 40%;
+}
+
+.Character>.Content>article>h1,
+.Character>.Content>article>h2 {
+    font-size: 1.8rem;
+    margin: 0 0 2rem 0;
+}
+
+.Character>.Content>article>p {
+    font-size: 1.5rem;
+}
+
+.Character>.Content>article>h1,
+.Character>.Content>article>h2,
+.Character>.Content>article>p {
+    text-shadow: 2px 2px 2px black;
+}
+@media screen and (min-width: 1600px) and (min-height: 800px) {
+    .Character>.Content{
+        margin: 3rem 10rem 0 10rem;
+    }
+    .Character>.Content>img {
+        max-height: 45rem;
+    }
+    .Character>.Content>article {
+        width: 45%;
+    }
+}
+@media screen and (max-width: 1400px) {
+    .Character>.Content {
+        margin: 0 10rem;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .Character>.Content>article {
+        width: 100%;
+    }
+
+    .Character>.Content>img {
+        margin: 2rem 0;
+        max-height: 30rem;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .Character>.Content {
+        margin: 0 2rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .Character>.Content>img {
+        max-height: 20rem;
+    }
+}

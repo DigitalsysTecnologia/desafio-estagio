@@ -1,0 +1,12 @@
+.ErroHandler>.ImageContainer {
+    height: calc(100vh - 4rem);
+    width: 100%;
+    z-index: -1;
+}
+
+.ErroHandler>.ImageContainer img {
+    object-fit: cover;
+    overflow: visible;
+    width: 100%;
+    transform: translateY(-50%);
+}

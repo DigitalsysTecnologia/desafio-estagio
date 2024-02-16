@@ -1,0 +1,14 @@
+.Characters>h1 {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 2rem;
+    color: #f0f0f0;
+    text-shadow: 0 2px 4px rgb(0, 0, 0);
+}
+.CharacterList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0 5vw;
+}

@@ -1,0 +1,30 @@
+.Index {
+    width: 100%;
+    height: 100%;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: auto;
+}
+
+.Index>h1{
+    font-size: 3rem;
+    margin: 2rem;
+    color: #f0f0f0;
+    text-shadow: 0 2px 4px rgb(0, 0, 0);
+    text-align: center;
+}
+
+.Index>p{
+    font-size: 1.5rem;
+    margin: 1rem 10rem;
+    color: #f0f0f0;
+    text-shadow: 0 2px 4px rgb(0, 0, 0);
+    text-align: justify;
+}
+
+@media screen and (max-width: 1400px) {
+    .Index>p{
+        margin: 1rem 2rem;
+    }
+    
+}
