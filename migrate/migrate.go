@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/mottapng/desafio-estagio/initializers"
+	"github.com/mottapng/desafio-estagio/models"
 )
 
 func init() {
@@ -10,4 +11,5 @@ func init() {
 }
 
 func main() {
+	initializers.DB.AutoMigrate(&models.Aventureiro{})
 }

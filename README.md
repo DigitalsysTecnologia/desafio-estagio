@@ -8,7 +8,6 @@
 - [ ] O aventureiro deve poder solicitar sua participação em uma missão
 - [ ] O aventureiro deve poder atualizar seus atributos de aventureiro
 - [ ] O aventureiro deve poder realizar a saída da guilda
-
 - [ ] O mestre deve poder aceitar ou recusar a admissão de um aventureiro
 - [ ] O mestre deve poder criar novas missões e atualizar seus status
 - [ ] O mestre deve poder aceitar a participação de um aventureiro em uma missão

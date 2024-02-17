@@ -2,6 +2,8 @@ package main
 
 import (
 	"github.com/mottapng/desafio-estagio/initializers"
+	"github.com/mottapng/desafio-estagio/middlewares"
+	"github.com/mottapng/desafio-estagio/modules/usersUseCases"
 
 	"github.com/gin-gonic/gin"
 )
@@ -14,9 +16,11 @@ func init() {
 func main() {
 	r:= gin.Default()
 
-	r.GET("/", func(c *gin.Context) {
+	r.POST("/login", usersUseCases.LoginUser)
+	r.POST("/aventureiro", usersUseCases.CreateUser)
+	r.GET("/test", middlewares.ValidateJWT, func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"message": "hello",
+				"message": "You have accessed a protected route!",
 		})
 	})
 
