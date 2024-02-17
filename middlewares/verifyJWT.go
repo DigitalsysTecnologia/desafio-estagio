@@ -46,5 +46,24 @@ func ValidateJWT(c *gin.Context) {
 			return
 	}
 
+	claims, ok := token.Claims.(jwt.MapClaims)
+    if !ok {
+        utils.ThrowError(c, 500, "Could not decode JWT")
+        return
+    }
+
+	userId := claims["sub"].(string)
+
+	isAccepted, err := utils.CheckIfIsAccepted(userId)
+	if err != nil {
+		utils.ThrowError(c, 500, "Erro ao verificar se aventureiro é aceito")
+		return
+	}
+
+	if(!isAccepted) {
+		utils.ThrowError(c, 403, "Aventureiro não aceito")
+		return
+	}
+
 	c.Next()
 }

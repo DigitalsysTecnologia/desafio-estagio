@@ -1,4 +1,4 @@
-package usersUseCases
+package aventureirosUseCases
 
 import (
 	"github.com/gin-gonic/gin"
@@ -8,7 +8,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-func CreateUser(c *gin.Context) {
+func CreateAventureiro(c *gin.Context) {
 	var body struct {
 		Nome string `json:"nome"`
 		Email string `json:"email"`
