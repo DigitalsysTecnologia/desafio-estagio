@@ -7,6 +7,9 @@ Este é meu programa feito, para o desafio de estagio para a Digitalsys Tecnolog
     ###INSTALAR O JAVA JDK
       - Ao baixar este arquivo e abrir o mesmo terá:
       ![Java JDK compactado](https://i.imgur.com/LWHeFlV.png)
+      - No caminho: C:\Program Files\ deve criar uma pasta com nome Java;
+      - Dentro da pasta java deve ser colocado o arquivo que terá dentro do arquivo compactado java JDK ficando assim a pasta:
+      ![Pasta Java](https://i.imgur.com/YQKu9Um.png)
  - Android Studio;
  - NodeJS.
 
