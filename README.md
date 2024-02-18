@@ -1,59 +1,85 @@
 # Desafio Técnico - Temática RPG
 
-Bem-vindos ao nosso processo seletivo para vagas de estágio em desenvolvimento! Estamos procurando talentos apaixonados por tecnologia e inovação, prontos para enfrentar desafios no mundo do desenvolvimento de software. Para tornar este processo mais interativo e divertido, elaboramos desafios técnicos inspirados no universo dos RPGs.
+Este é meu programa feito, para o desafio de estagio para a Digitalsys Tecnologia, no caso segui o desafio de DEV frontend, desenvolvendo por meio do react-native, para exibir players e missões e seus detalhes.
 
-### IMPORTANTE: Por favor, faça o teste com o maior capricho possível, visto que é através dos detalhes que poderemos avaliar sua experiência e senioridade
+## NECESSARIO PARA EXECUTAR:
+ - JAVA JDK (No caso o compactado, como neste link: https://download.oracle.com/java/18/archive/jdk-18.0.2.1_windows-x64_bin.zip);
+    ### INSTALAR O JAVA JDK
+      - Ao baixar este arquivo e abrir o mesmo terá:
+      ![Java JDK compactado](https://i.imgur.com/LWHeFlV.png)
+      - No caminho: C:\Program Files\ deve criar uma pasta com nome Java;
+      - Dentro da pasta java deve ser colocado o arquivo que terá dentro do arquivo compactado java JDK ficando assim a pasta:
+      ![Pasta Java](https://i.imgur.com/YQKu9Um.png)
+ - Android Studio;
+ - NodeJS.
 
-## Desafios
+## CONFIGURANDO JAVA JDK:
+ Com o Java SDK instalado basta seguir os seguintes procedimentos:
+ - Primeiramente é necessario acessar a tela de variaveis do ambiente, para isto basta seguir os passos a seguir:
+   - Abrir uma pasta do computador, e nela clicar com botão direito no "Este Computador" e clicar em propriedades, como demonstrado na imagem a seguir:
+   ![Caminho para configurações](https://i.imgur.com/3ldCCDb.png)
+   - Com acesso a tela de configurações, no menu superior direito clique em "Configurações avançadas do sistema";
+   ![Botão de configurações avançadas do sistema](https://i.imgur.com/P494yPd.png)
+   - Clique no botão "Váriaveis de Ambiente...";
+   - Na tela Váriaveis de ambiente, clique no botão "Novo...";
+   - Preencha o campo Nome da variavel com: JAVA_HOME e Valor da variavel com o caminho do java jdk como demonstrado na imagem a seguir:
+   ![Nova variavel de sistema](https://i.imgur.com/z5Pn7C7.png)
+   - Após salvar a nova variavel, deve acessar o Path das variaveis do sistema com dois cliques:
+   ![Caminho para paths](https://i.imgur.com/94GlyLT.png)
+   - Na tela de editar variaveis de ambiente do path, se deve clicar em "Novo", e deve ser colocado o caminho novamente para o jdk, porém com um \bin adcionado ao fim como demonstrado na imagem a seguir:
+   ![Definir o paths](https://i.imgur.com/T1nzcTH.png)
+   - E após isto selecione o que foi adcionado uma vez, e em "Mover para cima" até ficar no topo da lista.
+  
+## CONFIGURAR ANDROID STUDIO;
+ Durante a instalação não há nada demais a se fazer somente seguir passo a passo, porém é necessario configurar algumas coisas após isto que serão demonstradas a seguir:
+ - Primeiramente abra o android studio;
+ - Clique em "More actions" e em "SDK manager";
+ ![Caminho para SDK manager](https://i.imgur.com/68LOXIy.png)
+ - Na tela de configurações, clique na caixa para selecionar o SDK "Android 13.0 (Tiramisu)" e de Apply;
+ ![Definir SDK](https://i.imgur.com/k9nt9x6.png)
+ - Acesse a tela de variaveis de ambiente da mesma forma que foi orientado anteriormente;
+ - Clique no botão "Novo...";
+ - Defina a nova variavel com o nome: "ANDROID_HOME" e valor: o caminho que está no topo da tela de configurações do android studio (Onde está pode ser visto na imagem anterior), este caminho seria onde está o SDK;
+ ![Definir váriavel de ambiente](https://i.imgur.com/GbpbODJ.png)
+ - Novamente acesse o paths, como foi demonstrado em configurando o java JDK;
+ - Clique em "Novo";
+ - Coloque o caminho das pastas que acabou de ser utilizado como valor, porém no final do caminho coloque "\Sdk\emulator";
+ - Clique em "Novo" novamente, e adcione o caminho de pastas para SDK que havia sido usado porém no final adcione desta vez: "\Sdk\platform-tools";
+ ![Definir mais váriavel path](https://i.imgur.com/EsqVfYs.png)
+ - Agora deve ser configurado o emulador do android, para isto novamente na tela inicial do Android Studio, acesse pelo "More actions" e em "Virtual Device Manager"
+ ![Caminho Virtual Device Manager](https://i.imgur.com/DffyFMw.png)
+ - Na tela Device Manager, no canto superior esquerdo acesse "Create Device"
+ ![Create device](https://i.imgur.com/lGO4LIy.png)
+ - Selecione um dispositivo qual será emulado;
+ ![Selecione o hardware que estará emulando](https://i.imgur.com/d4hn6Jd.png)
+ - Clique na setinha ao lado de Tiramisu para baixa-lo:
+ ![Selecionar sistema tiramisu](https://i.imgur.com/WxBUJei.png)
+ - Ao terminar de baixar selecione o tiramisu e de next;
+ - De um nome ao dispositivo que está sendo criado no emulador e de finish;
+ - Após isto para conferir, teste o emulador clicando em play e siga as configurações como achar melhor para o emulador.
 
-Abaixo você encontrará os desafios para dev backend e dev frontend, faça o teste que for mais confortável para você, note que o teste de frontend ainda inclui mais uma escolha: mobile ou web, ambos usando o framework React.
+## Inicializando o projeto
+Com tudo baixado, instalado e configurado é hora de inicializar o projeto.
 
-### Dev Backend (Golang) - O Guardião dos Dados
-![Guardião dos dados](https://digitalsys-cdn.nyc3.cdn.digitaloceanspaces.com/desafio-estagio/guardiao-dados-2.png)
+- Faça um clone deste projeto;
+- Abra dois CMDs na pasta deste projeto;
+- Rode o comando: npm i;
+- Rode o comando: emulator -avd {Nome do emulador de dispositivo}, no caso seria o que vocÊ colocou nesta parte para ![Exemplo AVD nome](https://i.imgur.com/f7jXEv9.png)
+- Rode o comando: npx react-native run-android
+E pronto o programa irá carregar no emulador.
 
-#### Contexto
-Você é um Guardião dos Dados, encarregado de desenvolver uma infraestrutura segura para gerenciar as informações cruciais do reino. Utilizando Golang, juntamente com Gin Gonic e GORM, você deverá criar uma API RESTful que administre as missões de uma guilda de aventureiros.
+# SOBRE O PROGRAMA
+O mesmo foi feito utilizando react-native, e através do mesmo fiz o que foi pedido, através dele se pode navegar entre duas paginas principais pelo menu inferior, e em cada uma delas pode se tocar em um jogador ou missão para aparecer uma tela onde mostra mais detalhes das missões ou jogadores, no caso não foi aplicado nada de backend ou adcionar novos jogadores, é somente possivel vizualizar as informações.
+###Imagens do frontend:
 
-#### Missão
-Desenvolver uma API RESTful usando **Gin Gonic** que permita operações CRUD em missões de aventura. Utilize **GORM** para a interação com o banco de dados, facilitando a persistência e recuperação dos dados.
+![Tela main de jogadores](https://i.imgur.com/SDalZAS.png)
 
-##### Requisitos Específicos
-- **Framework:** Utilize Gin Gonic para facilitar a criação da API.
-- **ORM:** Use GORM para manipulação dos dados no banco de dados.
-- **Autenticação:** Implemente autenticação básica para proteger a API.
-- **Documentação:** Documente os endpoints e exemplos de uso da API.
-- **Bônus:** Implemente testes unitários e de integração.
+![Tela main de jogadores deitada](https://i.imgur.com/kmcne3V.png)
 
-### Dev Frontend (ReactJS/React Native) - O Artesão de Ilusões
-![Artesão das Ilusões](https://digitalsys-cdn.nyc3.cdn.digitaloceanspaces.com/desafio-estagio/artesao-ilusoes-2.png)
-#### Contexto
-Como um Artesão de Ilusões, você cria ambientes e objetos encantadores. Sua tarefa é desenvolver uma aplicação frontend que apresente um catálogo de aventuras e personagens de um RPG, demonstrando suas habilidades em criar interfaces ricas e interativas.
+![Tela de jogador deitada](https://i.imgur.com/dh3YM0b.png)
 
-#### Missão
-Desenvolver uma aplicação frontend que exiba uma lista de missões e personagens, utilizando ReactJS para web ou React Native para mobile. A aplicação deve permitir ao usuário visualizar detalhes de cada missão e personagem, incluindo descrição, dificuldade e status.
+![Tela das missões](https://i.imgur.com/loxsnSQ.png)
 
-##### Requisitos Específicos
-- Utilizar ReactJS para web ou React Native para mobile.
-- A aplicação deve ser responsiva e oferecer uma boa experiência de usuário em diferentes dispositivos.
-- Implementar navegação entre diferentes telas ou seções da aplicação.
-- **Bônus:** Utilizar animações ou transições para melhorar a interatividade da interface.
+![Tela de uma missão](https://i.imgur.com/lANjJFy.png)
 
-## Orientações para Submissão
-
-1. **Fork este repositório** para sua conta no GitHub.
-2. **Crie uma branch específica** para o desafio que você está desenvolvendo (`backend-golang` ou `frontend-react`).
-3. **Desenvolva o projeto** seguindo os requisitos do desafio escolhido.
-4. **Documente** no `README.md` as instruções de como configurar e executar seu projeto, além de exemplos de uso da API ou da interface, conforme aplicável.
-5. **Abra um Pull Request** com suas alterações, incluindo no título do PR o desafio que você está submetendo e no corpo do PR qualquer observação ou comentário relevante sobre seu projeto.
-
-### Critérios de Avaliação
-
-- **Qualidade do código:** legibilidade, organização, aplicação de boas práticas.
-- **Funcionalidade:** todas as funcionalidades requisitadas devem estar implementadas e funcionando conforme esperado.
-- **Documentação:** clareza nas instruções de configuração e uso do projeto.
-- **Extras:** qualquer funcionalidade ou característica extra será considerada positivamente.
-
-### Deadline (Prazo de entrega)
-- **Não existe prazo determinado para a entrega do projeto:** entretanto, recomendamos que faça-o tão logo possível,  com certeza vamos ler e avaliar seu código, mas suponhamos que você só consiga nos enviar seu teste após outros 5 candidatos serem aprovados no teste e nas demais fases, isso significa que seu teste precisará ser MUITO bom para abrirmos uma exceção e colocar você como o nosso "sexto elemento" =) 
-
-Boa sorte! Estamos ansiosos para ver as soluções incríveis que você irá criar.
+![Demonstração em gif](https://i.imgur.com/f6HUwQ0.gif)
