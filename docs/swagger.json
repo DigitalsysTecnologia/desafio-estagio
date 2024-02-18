@@ -1,0 +1,428 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server celler server.",
+        "title": "Desafio Estágio API",
+        "contact": {
+            "name": "Victor Motta",
+            "url": "https://github.com/mottapng",
+            "email": "victormotta7@gmail.com"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "paths": {
+        "/auth/login": {
+            "post": {
+                "description": "Realiza o login de um usuário com base no email e senha fornecidos.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Realiza o login de um usuário",
+                "parameters": [
+                    {
+                        "description": "Dados de Autenticação",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/authUseCases.LoginBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Login realizado com sucesso",
+                        "schema": {
+                            "$ref": "#/definitions/utils.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "Email não encontrado ou senha incorreta",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Erro ao realizar o login",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/register": {
+            "post": {
+                "description": "Solicita o cadastro de um novo aventureiro, se for o primeiro aventureiro cadastrado, será assumido como o mestre",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Cria um novo aventureiro",
+                "parameters": [
+                    {
+                        "description": "Dados do aventureiro",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/authUseCases.RegisterBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Aventureiro criado com sucesso",
+                        "schema": {
+                            "$ref": "#/definitions/models.Aventureiro"
+                        }
+                    },
+                    "400": {
+                        "description": "Classe inválida",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Erro ao encriptar senha\" \"Erro ao criar aventureiro",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/aventureiros": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Busca aventureiros com base nos parâmetros fornecidos (Requer ser Mestre).",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Aventureiro"
+                ],
+                "summary": "Busca aventureiros",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Nome do aventureiro",
+                        "name": "nome",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Classe do aventureiro",
+                        "name": "classe",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Status de aceitação do aventureiro",
+                        "name": "aceito",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Número da página",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Tamanho da página",
+                        "name": "pageSize",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Ordenação dos resultados",
+                        "name": "sort",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Aventureiros buscados com sucesso",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Aventureiro"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Não Autorizado",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Header de autorização não encontrado",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Erro ao buscar aventureiros",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/aventureiros/{id}": {
+            "patch": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Atualiza um aventureiro com base nos dados fornecidos.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Aventureiro"
+                ],
+                "summary": "Atualiza um aventureiro",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "ID do aventureiro a ser atualizado",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Dados do aventureiro",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/aventureiroUseCases.UpdateBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Aventureiro atualizado com sucesso",
+                        "schema": {
+                            "$ref": "#/definitions/models.Aventureiro"
+                        }
+                    },
+                    "400": {
+                        "description": "Nome ou classe é obrigatório",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Você não tem permissão para atualizar este aventureiro",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Aventureiro não encontrado",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Erro ao buscar aventureiro\" \"Erro ao atualizar aventureiro",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/aventureiros/{id}/aceitar": {
+            "patch": {
+                "description": "Aceita um aventureiro com base no ID fornecido.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Aventureiro"
+                ],
+                "summary": "Aceita aventureiro",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "ID do aventureiro",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Aventureiro aceito com sucesso",
+                        "schema": {
+                            "$ref": "#/definitions/utils.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "Aventureiro já aceito",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Aventureiro não encontrado",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Erro ao aceitar aventureiro",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "authUseCases.LoginBody": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "senha": {
+                    "type": "string"
+                }
+            }
+        },
+        "authUseCases.RegisterBody": {
+            "type": "object",
+            "properties": {
+                "classe": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "nome": {
+                    "type": "string"
+                },
+                "senha": {
+                    "type": "string"
+                }
+            }
+        },
+        "aventureiroUseCases.UpdateBody": {
+            "type": "object",
+            "properties": {
+                "classe": {
+                    "type": "string"
+                },
+                "nome": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Aventureiro": {
+            "type": "object",
+            "properties": {
+                "aceito": {
+                    "type": "boolean"
+                },
+                "classe": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "destreza": {
+                    "type": "integer"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "experiencia": {
+                    "type": "integer"
+                },
+                "forca": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "inteligencia": {
+                    "type": "integer"
+                },
+                "mestre": {
+                    "type": "boolean"
+                },
+                "nivel": {
+                    "type": "integer"
+                },
+                "nome": {
+                    "type": "string"
+                },
+                "senha": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            }
+        },
+        "utils.ErrorResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "utils.Response": {
+            "type": "object",
+            "properties": {
+                "data": {},
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "Bearer": {
+            "description": "Digite \"Bearer \" seguido do token JWT.",
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}

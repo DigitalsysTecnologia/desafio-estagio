@@ -16,7 +16,7 @@ var jwtKey = []byte(os.Getenv("JWT_SECRET_KEY"))
 func ValidateJWT(c *gin.Context) {
 	authHeader := c.GetHeader("Authorization")
 	if authHeader == "" {
-			utils.ThrowError(c, 401, "Header de autorização não encontrado")
+			utils.ThrowError(c, 404, "Header de autorização não encontrado")
 			return
 	}
 

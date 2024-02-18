@@ -9,11 +9,28 @@ import (
 	"github.com/mottapng/desafio-estagio/utils"
 )
 
+type UpdateBody struct {
+	Nome   string `json:"nome"`
+	Classe string `json:"classe"`
+}
+
+// UpdateAventureiro atualiza um aventureiro com base nos dados fornecidos.
+// @Summary Atualiza um aventureiro
+// @Description Atualiza um aventureiro com base nos dados fornecidos.
+// @Tags Aventureiro
+// @Accept json
+// @Produce json
+// @Param id path string true "ID do aventureiro a ser atualizado"
+// @Param body body UpdateBody false "Dados do aventureiro"
+// @Success 200 {object} models.Aventureiro "Aventureiro atualizado com sucesso"
+// @Failure 400 {object} utils.ErrorResponse "Nome ou classe é obrigatório"
+// @Failure 403 {object} utils.ErrorResponse "Você não tem permissão para atualizar este aventureiro"
+// @Failure 404 {object} utils.ErrorResponse "Aventureiro não encontrado"
+// @Failure 500 {object} utils.ErrorResponse "Erro ao buscar aventureiro" "Erro ao atualizar aventureiro"
+// @Security Bearer
+// @Router /aventureiros/{id} [patch]
 func UpdateAventureiro(c *gin.Context) {
-	var body struct {
-		Nome   string `json:"nome"`
-		Classe string `json:"classe"`
-	}
+	var body UpdateBody
 
 	c.Bind(&body)
 
@@ -65,14 +82,18 @@ func UpdateAventureiro(c *gin.Context) {
 		return
 	}
 
-	aventureiro.Nome = body.Nome
-	aventureiro.Classe = classe
+	if body.Nome != "" {
+		aventureiro.Nome = body.Nome
+	}
+	if classe != "" {
+		aventureiro.Classe = classe
 
-	attributes := utils.CalculateAttributeLevels(aventureiro.Nivel, classe)
+		attributes := utils.CalculateAttributeLevels(aventureiro.Nivel, classe)
 
-	aventureiro.Forca = attributes.Forca
-	aventureiro.Inteligencia = attributes.Inteligencia
-	aventureiro.Destreza = attributes.Destreza
+		aventureiro.Forca = attributes.Forca
+		aventureiro.Inteligencia = attributes.Inteligencia
+		aventureiro.Destreza = attributes.Destreza
+	}
 
 	result = db.Save(&aventureiro)
 

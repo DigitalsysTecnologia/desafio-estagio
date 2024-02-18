@@ -9,6 +9,24 @@ import (
 	"github.com/mottapng/desafio-estagio/utils"
 )
 
+// GetAventureiros busca aventureiros com base nos parâmetros fornecidos.
+// @Summary Busca aventureiros
+// @Description Busca aventureiros com base nos parâmetros fornecidos (Requer ser Mestre).
+// @Tags Aventureiro
+// @Accept json
+// @Produce json
+// @Param nome query string false "Nome do aventureiro"
+// @Param classe query string false "Classe do aventureiro"
+// @Param aceito query string false "Status de aceitação do aventureiro"
+// @Param page query int false "Número da página"
+// @Param pageSize query int false "Tamanho da página"
+// @Param sort query string false "Ordenação dos resultados"
+// @Success 200 {array} models.Aventureiro "Aventureiros buscados com sucesso"
+// @Failure 500 {object} utils.ErrorResponse "Erro ao buscar aventureiros"
+// @Failure 401 {object} utils.ErrorResponse "Não Autorizado"
+// @Failure 404 {object} utils.ErrorResponse "Header de autorização não encontrado"
+// @Security Bearer
+// @Router /aventureiros [get]
 func GetAventureiros(c *gin.Context) {
 	var aventureiros []models.Aventureiro
 

@@ -8,11 +8,24 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
+type LoginBody struct {
+	Email string `json:"email"`
+	Senha string `json:"senha"`
+}
+
+// LoginUser realiza o login de um usuário.
+// @Summary Realiza o login de um usuário
+// @Description Realiza o login de um usuário com base no email e senha fornecidos.
+// @Tags Auth
+// @Accept json
+// @Produce json
+// @Param body body LoginBody true "Dados de Autenticação"
+// @Success 200 {object} utils.Response "Login realizado com sucesso"
+// @Failure 500 {object} utils.ErrorResponse "Erro ao realizar o login"
+// @Failure 400 {object} utils.ErrorResponse "Email não encontrado ou senha incorreta"
+// @Router /auth/login [post]
 func LoginUser(c *gin.Context) {
-	var body struct {
-		Email string `json:"email"`
-		Senha string `json:"senha"`
-	}
+	var body LoginBody
 
 	c.Bind(&body)
 

@@ -10,13 +10,27 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
+type RegisterBody struct {
+	Nome string `json:"nome"`
+	Email string `json:"email"`
+	Senha string `json:"senha"`
+	Classe string `json:"classe"`
+}
+
+// CreateUser cria um novo aventureiro com base nos dados fornecidos.
+// @Summary Cria um novo aventureiro
+// @Description Solicita o cadastro de um novo aventureiro, se for o primeiro aventureiro cadastrado, será assumido como o mestre
+// @Tags Auth
+// @Accept json
+// @Produce json
+// @Param body body RegisterBody true "Dados do aventureiro"
+// @Success 201 {object} models.Aventureiro "Aventureiro criado com sucesso"
+// @Failure 400 {object} utils.ErrorResponse "Classe inválida"
+// @Failure 500 {object} utils.ErrorResponse "Erro ao encriptar senha"
+// @Failure 500 {object} utils.ErrorResponse "Erro ao criar aventureiro"
+// @Router /auth/register [post]
 func CreateUser(c *gin.Context) {
-	var body struct {
-		Nome string `json:"nome"`
-		Email string `json:"email"`
-		Senha string `json:"senha"`
-		Classe string `json:"classe"`
-	}
+	var body RegisterBody
 
 	c.Bind(&body)
 

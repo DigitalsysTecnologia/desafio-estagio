@@ -2,12 +2,9 @@ package models
 
 import (
 	"time"
-
-	"gorm.io/gorm"
 )
 
 type Aventureiro struct {
-	gorm.Model
 	Id           string    `gorm:"primaryKey;type:uuid;default:gen_random_uuid()"`
 	Nome         string    `gorm:"not null"`
 	Email        string    `gorm:"not null;unique;index"`

@@ -2,15 +2,15 @@
 
 - [x] O aventureiro deve poder solicitar seu cadastro na guilda fornecendo informações básicas
 - [x] O aventureiro deve poder alterar seu nome e classe
-- [ ] O aventureiro deve poder visualizar seus dados e seu perfil de atributos
+- [x] O aventureiro deve poder visualizar seus dados e seu perfil de atributos
+- [x] O aventureiro deve poder realizar a saída da guilda
 - [ ] O aventureiro deve poder visualizar as missões disponíveis
 - [ ] O aventureiro deve poder solicitar sua participação em uma missão
-- [ ] O aventureiro deve poder realizar a saída da guilda
 - [x] O mestre deve poder visualizar os aventureiros cadastrados
 - [x] O mestre deve poder aceitar ou recusar a admissão de um aventureiro
+- [x] O mestre deve poder expulsar um aventureiro da guilda
 - [ ] O mestre deve poder criar novas missões e atualizar seus status
 - [ ] O mestre deve poder aceitar a participação de um aventureiro em uma missão
-- [ ] O mestre deve poder expulsar um aventureiro da guilda
 
 # RN
 

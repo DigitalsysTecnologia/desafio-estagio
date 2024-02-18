@@ -1,0 +1,281 @@
+definitions:
+  authUseCases.LoginBody:
+    properties:
+      email:
+        type: string
+      senha:
+        type: string
+    type: object
+  authUseCases.RegisterBody:
+    properties:
+      classe:
+        type: string
+      email:
+        type: string
+      nome:
+        type: string
+      senha:
+        type: string
+    type: object
+  aventureiroUseCases.UpdateBody:
+    properties:
+      classe:
+        type: string
+      nome:
+        type: string
+    type: object
+  models.Aventureiro:
+    properties:
+      aceito:
+        type: boolean
+      classe:
+        type: string
+      createdAt:
+        type: string
+      destreza:
+        type: integer
+      email:
+        type: string
+      experiencia:
+        type: integer
+      forca:
+        type: integer
+      id:
+        type: string
+      inteligencia:
+        type: integer
+      mestre:
+        type: boolean
+      nivel:
+        type: integer
+      nome:
+        type: string
+      senha:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  utils.ErrorResponse:
+    properties:
+      message:
+        type: string
+    type: object
+  utils.Response:
+    properties:
+      data: {}
+      message:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: victormotta7@gmail.com
+    name: Victor Motta
+    url: https://github.com/mottapng
+  description: This is a sample server celler server.
+  title: Desafio Estágio API
+  version: "1.0"
+paths:
+  /auth/login:
+    post:
+      consumes:
+      - application/json
+      description: Realiza o login de um usuário com base no email e senha fornecidos.
+      parameters:
+      - description: Dados de Autenticação
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/authUseCases.LoginBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Login realizado com sucesso
+          schema:
+            $ref: '#/definitions/utils.Response'
+        "400":
+          description: Email não encontrado ou senha incorreta
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Erro ao realizar o login
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      summary: Realiza o login de um usuário
+      tags:
+      - Auth
+  /auth/register:
+    post:
+      consumes:
+      - application/json
+      description: Solicita o cadastro de um novo aventureiro, se for o primeiro aventureiro
+        cadastrado, será assumido como o mestre
+      parameters:
+      - description: Dados do aventureiro
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/authUseCases.RegisterBody'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Aventureiro criado com sucesso
+          schema:
+            $ref: '#/definitions/models.Aventureiro'
+        "400":
+          description: Classe inválida
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Erro ao encriptar senha" "Erro ao criar aventureiro
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      summary: Cria um novo aventureiro
+      tags:
+      - Auth
+  /aventureiros:
+    get:
+      consumes:
+      - application/json
+      description: Busca aventureiros com base nos parâmetros fornecidos (Requer ser
+        Mestre).
+      parameters:
+      - description: Nome do aventureiro
+        in: query
+        name: nome
+        type: string
+      - description: Classe do aventureiro
+        in: query
+        name: classe
+        type: string
+      - description: Status de aceitação do aventureiro
+        in: query
+        name: aceito
+        type: string
+      - description: Número da página
+        in: query
+        name: page
+        type: integer
+      - description: Tamanho da página
+        in: query
+        name: pageSize
+        type: integer
+      - description: Ordenação dos resultados
+        in: query
+        name: sort
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Aventureiros buscados com sucesso
+          schema:
+            items:
+              $ref: '#/definitions/models.Aventureiro'
+            type: array
+        "401":
+          description: Não Autorizado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "404":
+          description: Header de autorização não encontrado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Erro ao buscar aventureiros
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Busca aventureiros
+      tags:
+      - Aventureiro
+  /aventureiros/{id}:
+    patch:
+      consumes:
+      - application/json
+      description: Atualiza um aventureiro com base nos dados fornecidos.
+      parameters:
+      - description: ID do aventureiro a ser atualizado
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Dados do aventureiro
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/aventureiroUseCases.UpdateBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Aventureiro atualizado com sucesso
+          schema:
+            $ref: '#/definitions/models.Aventureiro'
+        "400":
+          description: Nome ou classe é obrigatório
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "403":
+          description: Você não tem permissão para atualizar este aventureiro
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "404":
+          description: Aventureiro não encontrado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Erro ao buscar aventureiro" "Erro ao atualizar aventureiro
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Atualiza um aventureiro
+      tags:
+      - Aventureiro
+  /aventureiros/{id}/aceitar:
+    patch:
+      consumes:
+      - application/json
+      description: Aceita um aventureiro com base no ID fornecido.
+      parameters:
+      - description: ID do aventureiro
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Aventureiro aceito com sucesso
+          schema:
+            $ref: '#/definitions/utils.Response'
+        "400":
+          description: Aventureiro já aceito
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "404":
+          description: Aventureiro não encontrado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Erro ao aceitar aventureiro
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      summary: Aceita aventureiro
+      tags:
+      - Aventureiro
+securityDefinitions:
+  Bearer:
+    description: Digite "Bearer " seguido do token JWT.
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

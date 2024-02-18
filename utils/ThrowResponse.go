@@ -2,6 +2,15 @@ package utils
 
 import "github.com/gin-gonic/gin"
 
+type ErrorResponse struct {
+	Message string `json:"message"`
+}
+
+type Response struct {
+	Message string      `json:"message"`
+	Data    interface{} `json:"data"`
+}
+
 func ThrowError(c *gin.Context, status int, message string) {
     c.JSON(status, gin.H{
         "message": message,
