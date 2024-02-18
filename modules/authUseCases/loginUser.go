@@ -1,4 +1,4 @@
-package aventureirosUseCases
+package authUseCases
 
 import (
 	"github.com/gin-gonic/gin"
@@ -8,7 +8,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-func LoginAventureiro(c *gin.Context) {
+func LoginUser(c *gin.Context) {
 	var body struct {
 		Email string `json:"email"`
 		Senha string `json:"senha"`

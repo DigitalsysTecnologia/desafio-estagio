@@ -15,7 +15,8 @@ func init() {
 func main() {
 	r:= gin.Default()
 
-	routes.AventureirosRoutes(r.Group("/aventureiro"))
+	routes.AuthRoutes(r.Group("/auth"))
+	routes.AventureiroRoutes(r.Group("/aventureiros"))
 
 	r.Run()
 }

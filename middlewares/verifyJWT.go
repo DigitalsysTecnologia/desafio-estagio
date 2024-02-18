@@ -2,6 +2,7 @@ package middlewares
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"strings"
 
@@ -42,28 +43,36 @@ func ValidateJWT(c *gin.Context) {
 	}
 
 	if !token.Valid {
-			utils.ThrowError(c, 401, "Não autorizado")
-			return
+		utils.ThrowError(c, 401, "Não autorizado")
+		return
 	}
 
 	claims, ok := token.Claims.(jwt.MapClaims)
-    if !ok {
-        utils.ThrowError(c, 500, "Could not decode JWT")
-        return
-    }
-
-	userId := claims["sub"].(string)
-
-	isAccepted, err := utils.CheckIfIsAccepted(userId)
-	if err != nil {
-		utils.ThrowError(c, 500, "Erro ao verificar se aventureiro é aceito")
+	if !ok {
+		utils.ThrowError(c, 500, "Não foi possível decodificar o token")
 		return
 	}
 
-	if(!isAccepted) {
-		utils.ThrowError(c, 403, "Aventureiro não aceito")
+	var userId string
+	if userIDClaim, ok := claims["userID"].(string); ok {
+		userId = userIDClaim
+	} else {
+		log.Println(claims)
+		utils.ThrowError(c, 500, "Não foi possível obter o ID do usuário")
 		return
 	}
+
+	var isMaster bool
+	if isMasterClaim, ok := claims["isMaster"].(bool); ok {
+		isMaster = isMasterClaim
+	} else {
+		utils.ThrowError(c, 500, "Não foi possível obter a informação de isMaster")
+		return
+	}
+	c.Set("userId", userId)
+	c.Set("isMaster", isMaster)
+
+	log.Println(userId, isMaster)
 
 	c.Next()
 }

@@ -13,11 +13,12 @@ import (
 
 func setupRouter() *gin.Engine {
     r := gin.Default()
-    routes.AventureirosRoutes(r.Group("/aventureiro"))
+    routes.AuthRoutes(r.Group("/auth"))
+    routes.AventureiroRoutes(r.Group("/aventureiros"))
     return r
 }
 
-func TestCreateAventureiro(t *testing.T) {
+func TestUserRegistration(t *testing.T) {
 	r := setupRouter()
 
 	w := httptest.NewRecorder()
@@ -27,7 +28,7 @@ func TestCreateAventureiro(t *testing.T) {
 			"senha": "password",
 			"classe": "Guerreiro"
 	}`)
-	req, _ := http.NewRequest("POST", "/aventureiro", body)
+	req, _ := http.NewRequest("POST", "/auth/register", body)
 	req.Header.Set("Content-Type", "application/json")
 
 	r.ServeHTTP(w, req)
@@ -35,7 +36,7 @@ func TestCreateAventureiro(t *testing.T) {
 	assert.Equal(t, http.StatusCreated, w.Code)
 }
 
-func TestLoginAventureiro(t *testing.T) {
+func TestUserLogin(t *testing.T) {
 	r := setupRouter()
 
 	w := httptest.NewRecorder()
@@ -43,7 +44,7 @@ func TestLoginAventureiro(t *testing.T) {
 		"email": "john@example.com",
 		"senha": "password"
 	}`)
-	req, _ := http.NewRequest("POST", "/aventureiro/login", body)
+	req, _ := http.NewRequest("POST", "/auth/login", body)
 	req.Header.Set("Content-Type", "application/json")
 
 	r.ServeHTTP(w, req)

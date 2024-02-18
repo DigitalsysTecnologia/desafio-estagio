@@ -9,10 +9,16 @@ func ThrowError(c *gin.Context, status int, message string) {
     c.Abort()
 }
 
-func ThrowResponse(c *gin.Context, status int, message string, data interface{}) {
+func ThrowResponse(c *gin.Context, status int, message string, data ...interface{}) {
+	if len(data) > 0 {
 		c.JSON(status, gin.H{
-				"message": message,
-				"data": data,
+			"message": message,
+			"data":    data[0],
 		})
-		c.Abort()
+	} else {
+		c.JSON(status, gin.H{
+			"message": message,
+		})
+	}
+	c.Abort()
 }

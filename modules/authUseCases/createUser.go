@@ -1,6 +1,8 @@
-package aventureirosUseCases
+package authUseCases
 
 import (
+	"strings"
+
 	"github.com/gin-gonic/gin"
 	"github.com/mottapng/desafio-estagio/initializers"
 	"github.com/mottapng/desafio-estagio/models"
@@ -8,7 +10,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-func CreateAventureiro(c *gin.Context) {
+func CreateUser(c *gin.Context) {
 	var body struct {
 		Nome string `json:"nome"`
 		Email string `json:"email"`
@@ -18,6 +20,23 @@ func CreateAventureiro(c *gin.Context) {
 
 	c.Bind(&body)
 
+	classe := strings.Title(strings.ToLower(body.Classe))
+
+	allowedClasses := []string{"Guerreiro", "Arqueiro", "Assassino", "Mago"}
+
+	validClass := false
+	for _, allowedClass := range allowedClasses {
+		if classe == allowedClass {
+			validClass = true
+			break
+		}
+	}
+
+	if !validClass {
+		utils.ThrowError(c, 400, "Classe inválida (Guerreiro, Arqueiro, Assassino, Paladino)")
+		return
+	}
+
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(body.Senha), bcrypt.DefaultCost)
 
 	if err != nil {
@@ -25,7 +44,7 @@ func CreateAventureiro(c *gin.Context) {
     return
 	}
 
-	aventureiro := models.Aventureiro{Nome: body.Nome, Email: body.Email, Senha: string(hashedPassword), Classe: body.Classe}
+	aventureiro := models.Aventureiro{Nome: body.Nome, Email: body.Email, Senha: string(hashedPassword), Classe: classe}
 
 	if aventureiro.Nome == "" || aventureiro.Email == "" || aventureiro.Senha == "" || aventureiro.Classe == "" {
 		utils.ThrowError(c, 400, "Faltam campos obrigatórios")
@@ -38,6 +57,12 @@ func CreateAventureiro(c *gin.Context) {
 		aventureiro.Aceito = true
 		aventureiro.Mestre = true
 	}
+
+	attributes := utils.CalculateAttributeLevels(1, classe)
+
+	aventureiro.Forca = attributes.Forca
+	aventureiro.Inteligencia = attributes.Inteligencia
+	aventureiro.Destreza = attributes.Destreza
 
 	result := initializers.DB.Create(&aventureiro)
 
