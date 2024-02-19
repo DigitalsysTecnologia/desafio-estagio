@@ -1,0 +1,604 @@
+definitions:
+  authUseCases.LoginBody:
+    properties:
+      email:
+        type: string
+      senha:
+        type: string
+    type: object
+  authUseCases.RegisterBody:
+    properties:
+      classe:
+        type: string
+      email:
+        type: string
+      nome:
+        type: string
+      senha:
+        type: string
+    type: object
+  aventureiroUseCases.UpdateBody:
+    properties:
+      classe:
+        type: string
+      nome:
+        type: string
+    type: object
+  missaoUseCases.CreateMissaoBody:
+    properties:
+      descricao:
+        type: string
+      dificuldade:
+        type: string
+      local:
+        type: string
+      maxParticipantes:
+        type: integer
+      nivelMinimo:
+        type: integer
+      quantXP:
+        type: integer
+      titulo:
+        type: string
+    type: object
+  models.Aventureiro:
+    properties:
+      aceito:
+        type: boolean
+      classe:
+        type: string
+      createdAt:
+        type: string
+      destreza:
+        type: integer
+      email:
+        type: string
+      experiencia:
+        type: integer
+      forca:
+        type: integer
+      id:
+        type: string
+      inteligencia:
+        type: integer
+      mestre:
+        type: boolean
+      nivel:
+        type: integer
+      nome:
+        type: string
+      senha:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  models.Missao:
+    properties:
+      aventureiros:
+        items:
+          $ref: '#/definitions/models.Aventureiro'
+        type: array
+      createdAt:
+        type: string
+      descricao:
+        type: string
+      dificuldade:
+        type: string
+      id:
+        type: string
+      local:
+        type: string
+      maxParticipantes:
+        type: integer
+      nivelMinimo:
+        type: integer
+      quantXP:
+        type: integer
+      status:
+        type: string
+      titulo:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  utils.ErrorResponse:
+    properties:
+      message:
+        type: string
+    type: object
+  utils.Response:
+    properties:
+      data: {}
+      message:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: victormotta7@gmail.com
+    name: Victor Motta
+    url: https://github.com/mottapng
+  description: Esta API fornece uma plataforma para o gerenciamento de uma guilda
+    em um mundo RPG. Ela permite que os usuários criem e gerenciem personagens (aventureiros)
+    e missões. O sistema calculará e atualizará automaticamente os níveis e atributos
+    dos personagens com base nas missões que eles completam. O primeiro usuário cadastrado
+    será o Mestre da guilda, e terá permissões especiais para gerenciar missões e
+    aventureiros.
+  title: Desafio Estágio API
+  version: "1.0"
+paths:
+  /auth/login:
+    post:
+      consumes:
+      - application/json
+      description: Realiza o login de um usuário com base no email e senha fornecidos.
+      parameters:
+      - description: Dados de Autenticação
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/authUseCases.LoginBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Login realizado com sucesso
+          schema:
+            $ref: '#/definitions/utils.Response'
+        "400":
+          description: Email não encontrado ou senha incorreta
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Erro ao realizar o login
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      summary: Realiza o login de um usuário
+      tags:
+      - Auth
+  /auth/register:
+    post:
+      consumes:
+      - application/json
+      description: Solicita o cadastro de um novo aventureiro, se for o primeiro aventureiro
+        cadastrado, será assumido como o mestre
+      parameters:
+      - description: Dados do aventureiro
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/authUseCases.RegisterBody'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Aventureiro criado com sucesso
+          schema:
+            $ref: '#/definitions/models.Aventureiro'
+        "400":
+          description: Email já cadastrado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Erro ao criar aventureiro
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      summary: Cria um novo aventureiro
+      tags:
+      - Auth
+  /aventureiros:
+    get:
+      consumes:
+      - application/json
+      description: Busca aventureiros com base nos parâmetros fornecidos (Requer ser
+        Mestre).
+      parameters:
+      - description: Nome do aventureiro
+        in: query
+        name: nome
+        type: string
+      - description: Classe do aventureiro
+        in: query
+        name: classe
+        type: string
+      - description: Status de aceitação do aventureiro
+        in: query
+        name: aceito
+        type: string
+      - description: Número da página
+        in: query
+        name: page
+        type: integer
+      - description: Tamanho da página
+        in: query
+        name: pageSize
+        type: integer
+      - description: Ordenação dos resultados
+        in: query
+        name: sort
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Aventureiros buscados com sucesso
+          schema:
+            items:
+              $ref: '#/definitions/models.Aventureiro'
+            type: array
+        "401":
+          description: Não Autorizado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "404":
+          description: Header de autorização não encontrado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Erro ao buscar aventureiros
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Busca aventureiros (Mestre)
+      tags:
+      - Aventureiro
+  /aventureiros/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Deleta um aventureiro com base no ID fornecido.
+      parameters:
+      - description: ID do aventureiro a ser deletado
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: Aventureiro deletado com sucesso
+        "401":
+          description: Não Autorizado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "403":
+          description: Você não tem permissão para deletar este aventureiro
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "404":
+          description: Header de autorização não encontrado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Erro ao buscar aventureiro" "Erro ao deletar aventureiro
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Deleta um aventureiro
+      tags:
+      - Aventureiro
+    get:
+      consumes:
+      - application/json
+      description: Busca um aventureiro com base nos parâmetros fornecidos.
+      parameters:
+      - description: ID do aventureiro
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Aventureiro buscado com sucesso
+          schema:
+            $ref: '#/definitions/models.Aventureiro'
+        "401":
+          description: Não Autorizado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "404":
+          description: Header de autorização não encontrado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Erro ao buscar aventureiro
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Busca um aventureiro
+      tags:
+      - Aventureiro
+    patch:
+      consumes:
+      - application/json
+      description: Atualiza um aventureiro com base nos dados fornecidos.
+      parameters:
+      - description: ID do aventureiro a ser atualizado
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Dados do aventureiro
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/aventureiroUseCases.UpdateBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Aventureiro atualizado com sucesso
+          schema:
+            $ref: '#/definitions/models.Aventureiro'
+        "400":
+          description: Nome ou classe é obrigatório
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "401":
+          description: Não Autorizado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "403":
+          description: Você não tem permissão para atualizar este aventureiro
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "404":
+          description: Header de autorização não encontrado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Erro ao buscar aventureiro" "Erro ao atualizar aventureiro
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Atualiza um aventureiro
+      tags:
+      - Aventureiro
+  /aventureiros/{id}/aceitar:
+    patch:
+      consumes:
+      - application/json
+      description: Aceita um aventureiro com base no ID fornecido.
+      parameters:
+      - description: ID do aventureiro
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Aventureiro aceito com sucesso
+          schema:
+            $ref: '#/definitions/utils.Response'
+        "400":
+          description: Aventureiro já aceito
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "401":
+          description: Não Autorizado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "404":
+          description: Header de autorização não encontrado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Erro ao aceitar aventureiro
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Aceita aventureiro (Mestre)
+      tags:
+      - Aventureiro
+  /missoes:
+    get:
+      consumes:
+      - application/json
+      description: Busca missões com base nos parâmetros fornecidos.
+      parameters:
+      - description: Título da missão
+        in: query
+        name: titulo
+        type: string
+      - description: Dificuldade da missão
+        in: query
+        name: dificuldade
+        type: string
+      - description: Nível mínimo requerido
+        in: query
+        name: nivel
+        type: integer
+      - description: Status da missão (se não for mestre, apenas 'Aberto')
+        in: query
+        name: status
+        type: string
+      - description: Pontos de experiência
+        in: query
+        name: quantXP
+        type: integer
+      - description: Número da página
+        in: query
+        name: page
+        type: integer
+      - description: Tamanho da página
+        in: query
+        name: pageSize
+        type: integer
+      - description: Ordem de classificação dos resultados
+        in: query
+        name: sort
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Missões buscadas com sucesso
+          schema:
+            items:
+              $ref: '#/definitions/models.Missao'
+            type: array
+        "401":
+          description: Não Autorizado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "403":
+          description: Usuário não é o mestre
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "404":
+          description: Header de autorização não encontrado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Erro ao buscar missões
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Busca missões
+      tags:
+      - Missão
+    post:
+      consumes:
+      - application/json
+      description: Cria uma nova missão com base nos dados fornecidos
+      parameters:
+      - description: Dados da missão
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/missaoUseCases.CreateMissaoBody'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Missão criada com sucesso
+          schema:
+            $ref: '#/definitions/models.Missao'
+        "400":
+          description: Dificuldade inválida
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "401":
+          description: Não Autorizado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "403":
+          description: Usuário não é o mestre
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "404":
+          description: Header de autorização não encontrado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Erro ao criar a missão
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Cria uma nova missão (Mestre)
+      tags:
+      - Missão
+  /missoes/{id}/join:
+    post:
+      consumes:
+      - application/json
+      description: Adiciona o aventureiro logado em uma missão em aberto
+      parameters:
+      - description: ID da missão
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Aventureiro adicionado com sucesso
+          schema:
+            $ref: '#/definitions/models.Missao'
+        "400":
+          description: Missão cheia
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "401":
+          description: Não Autorizado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "404":
+          description: Header de autorização não encontrado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Erro ao buscar aventureiro
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Adiciona aventureiro logado a uma missão
+      tags:
+      - Missão
+  /missoes/{id}/updateStatus:
+    patch:
+      consumes:
+      - application/json
+      description: Atualiza o status da missão (Aberto -> Em andamento -> Concluido)
+      parameters:
+      - description: ID da missão
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Missão atualizada com sucesso
+          schema:
+            $ref: '#/definitions/models.Missao'
+        "400":
+          description: Status inválido
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "401":
+          description: Não Autorizado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "403":
+          description: Usuário não é o mestre
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "404":
+          description: Header de autorização não encontrado
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+        "500":
+          description: Erro ao atualizar o status da missão
+          schema:
+            $ref: '#/definitions/utils.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Atualiza o status de uma missão (Mestre)
+      tags:
+      - Missão
+securityDefinitions:
+  Bearer:
+    description: Digite "Bearer " seguido do token JWT.
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
