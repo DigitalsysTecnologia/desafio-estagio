@@ -97,13 +97,13 @@ const docTemplate = `{
                         }
                     },
                     "400": {
-                        "description": "Classe inválida",
+                        "description": "Email já cadastrado",
                         "schema": {
                             "$ref": "#/definitions/utils.ErrorResponse"
                         }
                     },
                     "500": {
-                        "description": "Erro ao encriptar senha\" \"Erro ao criar aventureiro",
+                        "description": "Erro ao criar aventureiro",
                         "schema": {
                             "$ref": "#/definitions/utils.ErrorResponse"
                         }
@@ -128,7 +128,7 @@ const docTemplate = `{
                 "tags": [
                     "Aventureiro"
                 ],
-                "summary": "Busca aventureiros",
+                "summary": "Busca aventureiros (Mestre)",
                 "parameters": [
                     {
                         "type": "string",
@@ -199,6 +199,115 @@ const docTemplate = `{
             }
         },
         "/aventureiros/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Busca um aventureiro com base nos parâmetros fornecidos.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Aventureiro"
+                ],
+                "summary": "Busca um aventureiro",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "ID do aventureiro",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Aventureiro buscado com sucesso",
+                        "schema": {
+                            "$ref": "#/definitions/models.Aventureiro"
+                        }
+                    },
+                    "401": {
+                        "description": "Não Autorizado",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Header de autorização não encontrado",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Erro ao buscar aventureiro",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Deleta um aventureiro com base no ID fornecido.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Aventureiro"
+                ],
+                "summary": "Deleta um aventureiro",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "ID do aventureiro a ser deletado",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Aventureiro deletado com sucesso"
+                    },
+                    "401": {
+                        "description": "Não Autorizado",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Você não tem permissão para deletar este aventureiro",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Header de autorização não encontrado",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Erro ao buscar aventureiro\" \"Erro ao deletar aventureiro",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    }
+                }
+            },
             "patch": {
                 "security": [
                     {
@@ -228,7 +337,6 @@ const docTemplate = `{
                         "description": "Dados do aventureiro",
                         "name": "body",
                         "in": "body",
-                        "required": true,
                         "schema": {
                             "$ref": "#/definitions/aventureiroUseCases.UpdateBody"
                         }
@@ -247,6 +355,12 @@ const docTemplate = `{
                             "$ref": "#/definitions/utils.ErrorResponse"
                         }
                     },
+                    "401": {
+                        "description": "Não Autorizado",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
                     "403": {
                         "description": "Você não tem permissão para atualizar este aventureiro",
                         "schema": {
@@ -254,7 +368,7 @@ const docTemplate = `{
                         }
                     },
                     "404": {
-                        "description": "Aventureiro não encontrado",
+                        "description": "Header de autorização não encontrado",
                         "schema": {
                             "$ref": "#/definitions/utils.ErrorResponse"
                         }
@@ -270,6 +384,11 @@ const docTemplate = `{
         },
         "/aventureiros/{id}/aceitar": {
             "patch": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "description": "Aceita um aventureiro com base no ID fornecido.",
                 "consumes": [
                     "application/json"
@@ -280,10 +399,10 @@ const docTemplate = `{
                 "tags": [
                     "Aventureiro"
                 ],
-                "summary": "Aceita aventureiro",
+                "summary": "Aceita aventureiro (Mestre)",
                 "parameters": [
                     {
-                        "type": "integer",
+                        "type": "string",
                         "description": "ID do aventureiro",
                         "name": "id",
                         "in": "path",
@@ -303,14 +422,320 @@ const docTemplate = `{
                             "$ref": "#/definitions/utils.ErrorResponse"
                         }
                     },
+                    "401": {
+                        "description": "Não Autorizado",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
                     "404": {
-                        "description": "Aventureiro não encontrado",
+                        "description": "Header de autorização não encontrado",
                         "schema": {
                             "$ref": "#/definitions/utils.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Erro ao aceitar aventureiro",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/missoes": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Busca missões com base nos parâmetros fornecidos.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Missão"
+                ],
+                "summary": "Busca missões",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Título da missão",
+                        "name": "titulo",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Dificuldade da missão",
+                        "name": "dificuldade",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Nível mínimo requerido",
+                        "name": "nivel",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Status da missão (se não for mestre, apenas 'Aberto')",
+                        "name": "status",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Pontos de experiência",
+                        "name": "quantXP",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Número da página",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Tamanho da página",
+                        "name": "pageSize",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Ordem de classificação dos resultados",
+                        "name": "sort",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Missões buscadas com sucesso",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Missao"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Não Autorizado",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Usuário não é o mestre",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Header de autorização não encontrado",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Erro ao buscar missões",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Cria uma nova missão com base nos dados fornecidos",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Missão"
+                ],
+                "summary": "Cria uma nova missão (Mestre)",
+                "parameters": [
+                    {
+                        "description": "Dados da missão",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/missaoUseCases.CreateMissaoBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Missão criada com sucesso",
+                        "schema": {
+                            "$ref": "#/definitions/models.Missao"
+                        }
+                    },
+                    "400": {
+                        "description": "Dificuldade inválida",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Não Autorizado",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Usuário não é o mestre",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Header de autorização não encontrado",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Erro ao criar a missão",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/missoes/{id}/join": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Adiciona o aventureiro logado em uma missão em aberto",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Missão"
+                ],
+                "summary": "Adiciona aventureiro logado a uma missão",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "ID da missão",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Aventureiro adicionado com sucesso",
+                        "schema": {
+                            "$ref": "#/definitions/models.Missao"
+                        }
+                    },
+                    "400": {
+                        "description": "Missão cheia",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Não Autorizado",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Header de autorização não encontrado",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Erro ao buscar aventureiro",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/missoes/{id}/updateStatus": {
+            "patch": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Atualiza o status da missão (Aberto -\u003e Em andamento -\u003e Concluido)",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Missão"
+                ],
+                "summary": "Atualiza o status de uma missão (Mestre)",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "ID da missão",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Missão atualizada com sucesso",
+                        "schema": {
+                            "$ref": "#/definitions/models.Missao"
+                        }
+                    },
+                    "400": {
+                        "description": "Status inválido",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Não Autorizado",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Usuário não é o mestre",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Header de autorização não encontrado",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ErrorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Erro ao atualizar o status da missão",
                         "schema": {
                             "$ref": "#/definitions/utils.ErrorResponse"
                         }
@@ -355,6 +780,32 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "nome": {
+                    "type": "string"
+                }
+            }
+        },
+        "missaoUseCases.CreateMissaoBody": {
+            "type": "object",
+            "properties": {
+                "descricao": {
+                    "type": "string"
+                },
+                "dificuldade": {
+                    "type": "string"
+                },
+                "local": {
+                    "type": "string"
+                },
+                "maxParticipantes": {
+                    "type": "integer"
+                },
+                "nivelMinimo": {
+                    "type": "integer"
+                },
+                "quantXP": {
+                    "type": "integer"
+                },
+                "titulo": {
                     "type": "string"
                 }
             }
@@ -406,6 +857,50 @@ const docTemplate = `{
                 }
             }
         },
+        "models.Missao": {
+            "type": "object",
+            "properties": {
+                "aventureiros": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.Aventureiro"
+                    }
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "descricao": {
+                    "type": "string"
+                },
+                "dificuldade": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "local": {
+                    "type": "string"
+                },
+                "maxParticipantes": {
+                    "type": "integer"
+                },
+                "nivelMinimo": {
+                    "type": "integer"
+                },
+                "quantXP": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "titulo": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            }
+        },
         "utils.ErrorResponse": {
             "type": "object",
             "properties": {
@@ -441,7 +936,7 @@ var SwaggerInfo = &swag.Spec{
 	BasePath:         "",
 	Schemes:          []string{},
 	Title:            "Desafio Estágio API",
-	Description:      "This is a sample server celler server.",
+	Description:      "Esta API fornece uma plataforma para o gerenciamento de uma guilda em um mundo RPG. Ela permite que os usuários criem e gerenciem personagens (aventureiros) e missões. O sistema calculará e atualizará automaticamente os níveis e atributos dos personagens com base nas missões que eles completam. O primeiro usuário cadastrado será o Mestre da guilda, e terá permissões especiais para gerenciar missões e aventureiros.",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",

@@ -10,7 +10,7 @@ import (
 )
 
 // GetAventureiros busca aventureiros com base nos parâmetros fornecidos.
-// @Summary Busca aventureiros
+// @Summary Busca aventureiros (Mestre)
 // @Description Busca aventureiros com base nos parâmetros fornecidos (Requer ser Mestre).
 // @Tags Aventureiro
 // @Accept json

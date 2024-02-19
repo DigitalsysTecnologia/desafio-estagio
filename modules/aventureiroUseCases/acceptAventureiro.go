@@ -8,18 +8,19 @@ import (
 )
 
 // AcceptAventureiro aceita um aventureiro com base no ID fornecido.
-// @Summary Aceita aventureiro
+// @Summary Aceita aventureiro (Mestre)
 // @Description Aceita um aventureiro com base no ID fornecido.
 // @Tags Aventureiro
 // @Accept json
 // @Produce json
-// @Param id path int true "ID do aventureiro"
+// @Param id path string true "ID do aventureiro"
 // @Success 200 {object} utils.Response "Aventureiro aceito com sucesso"
 // @Failure 500 {object} utils.ErrorResponse "Erro ao aceitar aventureiro"
 // @Failure 404 {object} utils.ErrorResponse "Aventureiro não encontrado"
 // @Failure 400 {object} utils.ErrorResponse "Aventureiro já aceito"
 // @Failure 401 {object} utils.ErrorResponse "Não Autorizado"
 // @Failure 404 {object} utils.ErrorResponse "Header de autorização não encontrado"
+// @Security Bearer
 // @Router /aventureiros/{id}/aceitar [patch]
 func AcceptAventureiro(c *gin.Context) {
 	var aventureiro models.Aventureiro

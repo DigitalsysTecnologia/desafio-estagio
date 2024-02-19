@@ -27,6 +27,8 @@ type UpdateBody struct {
 // @Failure 403 {object} utils.ErrorResponse "Você não tem permissão para atualizar este aventureiro"
 // @Failure 404 {object} utils.ErrorResponse "Aventureiro não encontrado"
 // @Failure 500 {object} utils.ErrorResponse "Erro ao buscar aventureiro" "Erro ao atualizar aventureiro"
+// @Failure 401 {object} utils.ErrorResponse "Não Autorizado"
+// @Failure 404 {object} utils.ErrorResponse "Header de autorização não encontrado"
 // @Security Bearer
 // @Router /aventureiros/{id} [patch]
 func UpdateAventureiro(c *gin.Context) {

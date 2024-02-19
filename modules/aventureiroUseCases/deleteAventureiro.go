@@ -18,6 +18,8 @@ import (
 // @Failure 403 {object} utils.ErrorResponse "Você não tem permissão para deletar este aventureiro"
 // @Failure 404 {object} utils.ErrorResponse "Aventureiro não encontrado"
 // @Failure 500 {object} utils.ErrorResponse "Erro ao buscar aventureiro" "Erro ao deletar aventureiro"
+// @Failure 401 {object} utils.ErrorResponse "Não Autorizado"
+// @Failure 404 {object} utils.ErrorResponse "Header de autorização não encontrado"
 // @Security Bearer
 // @Router /aventureiros/{id} [delete]
 func DeleteAventureiro(c *gin.Context) {

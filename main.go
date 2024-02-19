@@ -19,7 +19,7 @@ func init() {
 
 // @title           Desafio Estágio API
 // @version         1.0
-// @description     This is a sample server celler server.
+// @description     Esta API fornece uma plataforma para o gerenciamento de uma guilda em um mundo RPG. Ela permite que os usuários criem e gerenciem personagens (aventureiros) e missões. O sistema calculará e atualizará automaticamente os níveis e atributos dos personagens com base nas missões que eles completam. O primeiro usuário cadastrado será o Mestre da guilda, e terá permissões especiais para gerenciar missões e aventureiros.
 
 // @contact.name   Victor Motta
 // @contact.url 	 https://github.com/mottapng
@@ -38,6 +38,7 @@ func main() {
 
 	routes.AuthRoutes(r.Group("/auth"))
 	routes.AventureiroRoutes(r.Group("/aventureiros"))
+	routes.MissaoRoutes(r.Group("/missoes"))
 
 	r.Run()
 }

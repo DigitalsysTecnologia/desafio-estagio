@@ -26,6 +26,8 @@ type RegisterBody struct {
 // @Param body body RegisterBody true "Dados do aventureiro"
 // @Success 201 {object} models.Aventureiro "Aventureiro criado com sucesso"
 // @Failure 400 {object} utils.ErrorResponse "Classe inválida"
+// @Failure 400 {object} utils.ErrorResponse "Faltam campos obrigatórios"
+// @Failure 400 {object} utils.ErrorResponse "Email já cadastrado"
 // @Failure 500 {object} utils.ErrorResponse "Erro ao encriptar senha"
 // @Failure 500 {object} utils.ErrorResponse "Erro ao criar aventureiro"
 // @Router /auth/register [post]
@@ -37,6 +39,11 @@ func CreateUser(c *gin.Context) {
 	classe := strings.Title(strings.ToLower(body.Classe))
 
 	allowedClasses := []string{"Guerreiro", "Arqueiro", "Assassino", "Mago"}
+
+	if body.Nome == "" || body.Email == "" || body.Senha == "" || classe == "" {
+		utils.ThrowError(c, 400, "Faltam campos obrigatórios")
+    return
+	}
 
 	validClass := false
 	for _, allowedClass := range allowedClasses {
@@ -51,6 +58,13 @@ func CreateUser(c *gin.Context) {
 		return
 	}
 
+	var aventureiro models.Aventureiro
+	aventureiroResult := initializers.DB.Where("email = ?", body.Email).First(&aventureiro)
+	if aventureiroResult.RowsAffected != 0 {
+		utils.ThrowError(c, 400, "Email já cadastrado")
+		return
+	}
+
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(body.Senha), bcrypt.DefaultCost)
 
 	if err != nil {
@@ -58,12 +72,7 @@ func CreateUser(c *gin.Context) {
     return
 	}
 
-	aventureiro := models.Aventureiro{Nome: body.Nome, Email: body.Email, Senha: string(hashedPassword), Classe: classe}
-
-	if aventureiro.Nome == "" || aventureiro.Email == "" || aventureiro.Senha == "" || aventureiro.Classe == "" {
-		utils.ThrowError(c, 400, "Faltam campos obrigatórios")
-    return
-	}
+	aventureiro = models.Aventureiro{Nome: body.Nome, Email: body.Email, Senha: string(hashedPassword), Classe: classe}
 
 	aventureiros := initializers.DB.Find(&models.Aventureiro{})
 

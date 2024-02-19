@@ -13,7 +13,7 @@ import (
 // @Tags Aventureiro
 // @Accept json
 // @Produce json
-// @Param id path int true "ID do aventureiro"
+// @Param id path string true "ID do aventureiro"
 // @Success 200 {object} models.Aventureiro "Aventureiro buscado com sucesso"
 // @Failure 500 {object} utils.ErrorResponse "Erro ao buscar aventureiro"
 // @Failure 401 {object} utils.ErrorResponse "Não Autorizado"
