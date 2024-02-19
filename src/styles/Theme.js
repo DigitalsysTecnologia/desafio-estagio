@@ -7,7 +7,7 @@ const theme = extendTheme({
   colors: {
     brand: {
       1: "#594F42",
-      2: "#D4F739",
+      2: "#DF7F3E",
       3: "#271C14",
     },
     grey: {
@@ -26,11 +26,11 @@ const theme = extendTheme({
   },
   fontSizes: {
     "3xl": "4rem",
-    "2xl": "2.125rem",
+    "2xl": "1.9rem",
     xl: "1.1rem",
     lg: "1rem",
     md: "1.563rem",
-    sm: "1.25rem",
+    sm: "1.15rem",
     xs: "0.7rem",
   },
   fontWeights: {
