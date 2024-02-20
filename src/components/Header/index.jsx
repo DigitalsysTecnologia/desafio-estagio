@@ -9,7 +9,6 @@ import {
   MenuItem,
   useMediaQuery,
   Box,
-  Link,
 } from "@chakra-ui/react";
 import logo from "../../img/logo.png";
 import { useEffect, useState } from "react";

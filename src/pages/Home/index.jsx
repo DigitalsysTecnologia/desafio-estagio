@@ -1,4 +1,4 @@
-import { Box, Text, Flex, ListItem, position } from "@chakra-ui/react";
+import { Box, Text, Flex } from "@chakra-ui/react";
 import bg1 from "../../img/bg.jpg";
 import bg2 from "../../img/bg2.jpg";
 import { Header } from "../../components/Header";
