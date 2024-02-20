@@ -1,0 +1,103 @@
+.missions-screen{
+    background-color: #D9D9D9;
+    margin-top: 5%;
+    font-family: "Gentium Book Plus", serif;
+}
+
+.missionSelection-container{
+    
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    transition: 0.2;
+    @media(max-width: 768px){
+        flex-direction: column;
+    }
+
+}
+
+.missions-container:hover{
+    cursor: pointer;
+    box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
+}
+
+.title-container{
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+.mission-title{
+    font-size: 74px;
+    font-weight: 200;
+    line-height: 80%;
+    padding-top: 3%;
+    @media(max-width: 768px){
+        font-size: 54px;
+    
+    }
+}
+
+.missions-container{
+    background-color: #B1AFAF;
+    display: flex;
+    flex-direction: column;
+    min-height: 700px;
+    max-height: 100%;
+    width: 100%;
+    margin:0 2% 3% 2%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    @media(max-width: 768px){
+        width: auto;
+        min-height: auto;
+    
+    }
+}
+
+.missionImages-wraper{
+    height: 50%;
+    width: 100%;
+}
+
+.mission-cards-images{
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+}
+
+.missionsDescription-wraper{
+    display: block;
+    position: static;
+    height: 50%;
+    text-align: center;
+    padding: 2px;
+
+}
+
+.titles{
+    font-size: 30px;
+    margin: 0;
+}
+
+.description{
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.status{
+    color: #DD2D97;
+}
+
+.itens{
+    font-style: italic;
+    font-weight: bold;
+}

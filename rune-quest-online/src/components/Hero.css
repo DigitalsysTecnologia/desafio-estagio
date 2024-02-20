@@ -1,0 +1,81 @@
+
+.hero-container {
+    color: white;
+    font-family: "Gentium Book Plus", serif;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    margin-bottom: 150px;
+    @media(max-width: 768px){
+      margin-bottom: 70px;
+    }
+  }
+  
+  .hero-image {
+    display: none; /* Hide both images initially */
+  }
+
+  @media (min-width: 768px) {
+    .hero-image-mobile{
+        display: none;
+    }
+    .hero-image{
+        display: block;
+        width: 100%;
+        height: auto;
+        opacity: 0.80;
+    }
+}
+
+  @media (max-width: 767px) {
+    .hero-image{    
+        display: none;
+    }
+    .hero-image-mobile{
+        width: 100%;
+        height: auto;
+        opacity: 0.80;
+    }
+}
+ 
+  .logo-white {
+    display: block;
+      width: 45%;
+      height: auto;
+      position: absolute;
+      top: 0.1%;
+    @media (min-width: 768px) {
+      width: 25%;
+      top: 0.5%;
+    }
+  }
+
+  .texts-wrapper{
+    position: absolute;
+  }
+  
+  .welcome-message {
+    margin-bottom: 20px;
+    font-size: 3.5em;
+    font-weight: 400;
+    text-shadow: 1px 2px 4px rgb(53, 53, 53);
+    text-align: center;
+    line-height: 110%;
+    @media (max-width: 768px) {
+      font-size: 3em;
+    }
+ 
+  }
+  
+  .second-message {
+    font-size: 1.5em;
+    opacity: 0.78;
+    text-align: center;
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+  
+  

@@ -1,0 +1,71 @@
+
+.slider-container{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: white;
+    font-family: "Gentium Book Plus", serif;
+    height: 900px;
+    margin-bottom: 170px;
+    @media (max-width: 768px) {
+        margin-left:8%;
+        margin-right: 8%;
+        height: 800px;
+        margin-bottom: 130px;
+      }
+}
+
+.card-wraper{
+    height: auto;
+    width: fit-content;
+    margin: auto;
+}
+
+.image-cards{
+    width: fit-content;
+    height: auto;
+    object-fit: cover;
+    @media(min-width: 2560px){
+        object-fit: contain;
+    }
+}
+
+
+.title-images{
+    color: black;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: 50px;
+    @media (max-width: 768px) {
+        font-size: 30px
+    }
+}
+
+.description-images{
+    margin-top: 7px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 200;
+    @media (max-width: 768px) {
+        font-size: 15px
+    }
+}
+
+.icon-container{
+    margin-top: 5px;
+    text-align: center;
+}
+.icon{
+    display: block;
+    height: fit-content;
+    width: 60px;
+    margin: 0 auto;
+    @media(max-width: 1024px){
+        height: fit-content;
+        width: 40px;
+    }
+}
+
+
+
