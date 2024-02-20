@@ -38,36 +38,36 @@ const CarouselCharacters = () => {
           {characters.map((element, index) => (
             <Box
               key={index}
-              position="relative"
-              w="90%"
-              h="90%"
-              borderRadius="50%"
-              overflow="hidden"
+              position={"relative"}
+              w={"90%"}
+              h={"90%"}
+              borderRadius={"50%"}
+              overflow={"hidden"}
               onMouseEnter={() => setHoveredImage(index)}
               onMouseLeave={() => setHoveredImage(null)}
               onClick={() => handleImageClick(element)}
-              cursor="pointer"
-              mr="20px"
+              cursor={"pointer"}
+              mr={"20px"}
             >
               <Box
-                as="img"
+                as={"img"}
                 src={element.img}
                 alt={`Slide ${index + 1}`}
-                w="100%"
-                h="100%"
-                objectFit="cover"
+                w={"100%"}
+                h={"100%"}
+                objectFit={"cover"}
               />
               {hoveredImage === index && (
                 <Box
-                  position="absolute"
+                  position={"absolute"}
                   top={0}
                   left={0}
                   right={0}
                   bottom={0}
-                  borderWidth="2px"
-                  borderColor="white"
-                  borderRadius="50%"
-                  pointerEvents="none"
+                  borderWidth={"2px"}
+                  borderColor={"white"}
+                  borderRadius={"50%"}
+                  pointerEvents={"none"}
                 />
               )}
             </Box>

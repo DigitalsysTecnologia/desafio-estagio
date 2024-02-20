@@ -6,6 +6,7 @@ import { Carousel } from "../../components/Carousel";
 import { CardMissions } from "../../components/CardMissions";
 import { missions } from "../../services/database";
 import { CarouselCharacters } from "../../components/CarouselCharacters";
+import { Footer } from "../../components/Footer";
 
 const HomePage = () => {
   return (
@@ -156,7 +157,7 @@ const HomePage = () => {
         bgPosition={"center"}
         bgRepeat={"no-repeat"}
         w={"100%"}
-        h={"140vh"}
+        h={"160vh"}
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
@@ -178,6 +179,7 @@ const HomePage = () => {
         </Flex>
         <CarouselCharacters />
       </Box>
+      <Footer />
     </>
   );
 };
