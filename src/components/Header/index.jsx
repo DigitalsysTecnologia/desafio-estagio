@@ -9,6 +9,7 @@ import {
   MenuItem,
   useMediaQuery,
   Box,
+  Link,
 } from "@chakra-ui/react";
 import logo from "../../img/logo.png";
 import { useEffect, useState } from "react";
@@ -16,7 +17,7 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [isLargerScreen] = useMediaQuery("(min-width: 992px)");
+  const [isLargerScreen] = useMediaQuery("(min-width: 1025px)");
   const [activeButton, setActiveButton] = useState("Início");
 
   useEffect(() => {
@@ -25,22 +26,32 @@ const Header = () => {
 
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
+    scrollToComponent(buttonName);
+  };
+
+  const scrollToComponent = (id) => {
+    const component = document.getElementById(id);
+
+    if (component) {
+      component.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
     <Flex
       w={"100%"}
-      h={{ base: "110px", md: "60px" }}
-      bgColor={"grey.0.5"}
+      h={{ base: "110px", md: "70px" }}
+      bgColor={"grey.0"}
       alignItems={"center"}
       justifyContent={"center"}
       flexDirection={"column"}
-      position={"absolute"}
+      position={"fixed"}
+      zIndex={2}
     >
       <Flex
-        w={"62%"}
+        w={"80%"}
         alignItems={"center"}
-        justifyContent={{ base: "space-between", lg: "initial" }}
+        justifyContent={"space-between"}
         flexDirection={{ base: "column", md: "row" }}
         gap={{ base: "10px", md: "40px" }}
         position={"relative"}
@@ -60,28 +71,21 @@ const Header = () => {
               <MenuList bgColor={"grey.1"} border={"none"}>
                 <MenuItem
                   onClick={() => handleButtonClick("Personagens")}
-                  style={{
-                    color:
-                      activeButton === "Personagens" ? "brand.2" : "grey.9",
-                  }}
+                  color={activeButton === "Personagens" ? "brand.2" : "grey.9"}
                   bgColor={"grey.1"}
                 >
                   Personagens
                 </MenuItem>
                 <MenuItem
                   onClick={() => handleButtonClick("Missões")}
-                  style={{
-                    color: activeButton === "Missões" ? "brand.2" : "grey.9",
-                  }}
+                  color={activeButton === "Missões" ? "brand.2" : "grey.9"}
                   bgColor={"grey.1"}
                 >
                   Missões
                 </MenuItem>
                 <MenuItem
                   onClick={() => handleButtonClick("Início")}
-                  style={{
-                    color: activeButton === "Início" ? "brand.2" : "grey.9",
-                  }}
+                  color={activeButton === "Início" ? "brand.2" : "grey.9"}
                   bgColor={"grey.1"}
                 >
                   Início
@@ -94,7 +98,7 @@ const Header = () => {
                 bgColor={"transparent"}
                 color={activeButton === "Início" ? "brand.2" : "grey.9"}
                 fontWeight={"medium"}
-                fontSize={"sm"}
+                fontSize={"md"}
                 _hover={{ color: "brand.2" }}
                 onClick={() => handleButtonClick("Início")}
               >
@@ -114,7 +118,7 @@ const Header = () => {
                 bgColor={"transparent"}
                 color={activeButton === "Personagens" ? "brand.2" : "grey.9"}
                 fontWeight={"medium"}
-                fontSize={"sm"}
+                fontSize={"md"}
                 _hover={{ color: "brand.2" }}
                 onClick={() => handleButtonClick("Personagens")}
               >
@@ -134,7 +138,7 @@ const Header = () => {
                 bgColor={"transparent"}
                 color={activeButton === "Missões" ? "brand.2" : "grey.9"}
                 fontWeight={"medium"}
-                fontSize={"sm"}
+                fontSize={"md"}
                 _hover={{ color: "brand.2" }}
                 onClick={() => handleButtonClick("Missões")}
               >

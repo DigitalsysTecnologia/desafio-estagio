@@ -2,7 +2,7 @@ import { extendTheme } from "@chakra-ui/react";
 
 const theme = extendTheme({
   fonts: {
-    body: "'Merriweather',serif",
+    body: "KELMSCOT, sans-serif",
   },
   colors: {
     brand: {
@@ -25,7 +25,7 @@ const theme = extendTheme({
     },
   },
   fontSizes: {
-    "3xl": "4rem",
+    "3xl": "3rem",
     "2xl": "1.9rem",
     xl: "1.1rem",
     lg: "1rem",

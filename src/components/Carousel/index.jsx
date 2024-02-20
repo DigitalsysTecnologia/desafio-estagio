@@ -25,21 +25,21 @@ const Carousel = () => {
       <Slider {...settings}>
         <Box textAlign="center">
           <img src={slide1} alt="Slide 1" />
-          <Text mt={2} color={"grey.9"}>
+          <Text mt={2} color={"grey.9"} fontSize={"sm"}>
             Prepare-se para a batalha épica entre vikings e templários! O
             destino do mundo está em jogo.
           </Text>
         </Box>
         <Box textAlign="center">
           <img src={slide2} alt="Slide 2" />
-          <Text mt={2} color={"grey.9"}>
+          <Text mt={2} color={"grey.9"} fontSize={"sm"}>
             Junte-se à Ordem dos Templários e proteja os segredos sagrados a
             todo custo. A honra está em jogo.
           </Text>
         </Box>
         <Box textAlign="center">
           <img src={slide3} alt="Slide 3" />
-          <Text mt={2} color={"grey.9"}>
+          <Text mt={2} color={"grey.9"} fontSize={"sm"}>
             Desvende os mistérios ocultos dos templários e descubra o legado
             perdido dos vikings enquanto você mergulha em uma narrativa
             envolvente e cheia de reviravoltas.
@@ -47,14 +47,14 @@ const Carousel = () => {
         </Box>
         <Box textAlign="center">
           <img src={slide4} alt="Slide 3" />
-          <Text mt={2} color={"grey.9"}>
+          <Text mt={2} color={"grey.9"} fontSize={"sm"}>
             Domine habilidades ancestrais e forje alianças estratégicas enquanto
             luta pela supremacia em um mundo de mitos e lendas.
           </Text>
         </Box>
         <Box textAlign="center">
           <img src={slide5} alt="Slide 3" />
-          <Text mt={2} color={"grey.9"}>
+          <Text mt={2} color={"grey.9"} fontSize={"sm"}>
             Testemunhe a coragem dos guerreiros vikings e a devoção inabalável
             dos templários em confrontos épicos que moldarão o destino da
             humanidade.
@@ -65,4 +65,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export { Carousel };

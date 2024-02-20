@@ -1,81 +1,52 @@
+import missao1 from "../img/missao1.jpg";
+import missao2 from "../img/missao2.jpg";
+import missao3 from "../img/missao3.jpg";
+import missao4 from "../img/missao4.jpg";
+import missao5 from "../img/missao5.jpg";
+import missao6 from "../img/missao6.jpg";
+
 const missions = [
   {
-    title: "Defesa da Cidade",
+    id: 1,
+    img: missao1,
+    title: "Roubo da Relíquia Sagrada",
     description:
-      "A cidade está sendo atacada por monstros e precisa de heróis para defendê-la.",
-    objectives: ["Derrotar os monstros invasores", "Proteger os cidadãos"],
-    rewards: ["Espada mágica", "200 pontos de experiência"],
-    difficulty: "Difícil",
-    location: "Cidade de Eldoria",
-    prerequisites: ["Habilidade em combate", "Força e coragem"],
-    status: "Ativa",
-    notes: "Monstros podem atacar em ondas.",
+      "Os Templários roubaram uma relíquia sagrada dos Vikings e a esconderam em seu forte. Sua missão é infiltrar-se nas defesas inimigas, enfrentar os guardas templários e recuperar a relíquia antes que ela caia nas mãos erradas.",
   },
   {
-    title: "Recuperação de Artefato",
+    id: 2,
+    img: missao2,
+    title: "Pacto com os Deuses",
     description:
-      "Um artefato antigo de grande poder foi roubado e precisa ser recuperado antes que caia em mãos erradas.",
-    objectives: ["Rastrear o ladrão", "Recuperar o artefato"],
-    rewards: ["Artefato restaurado", "300 pontos de experiência"],
-    difficulty: "Médio",
-    location: "Ruínas de Arkania",
-    prerequisites: [
-      "Conhecimento de história e arqueologia",
-      "Habilidade de rastreamento",
-    ],
-    status: "Ativa",
-    notes: "Cuidado com armadilhas nas ruínas.",
+      "Os Deuses Antigos convocaram os Vikings para realizar um ritual antigo e garantir sua proteção contra os avanços dos Templários. Sua tarefa é acompanhar o sacerdote viking em uma jornada perigosa até o local sagrado e protegê-lo dos ataques dos templários enquanto ele realiza o ritual.",
   },
   {
-    title: "Expansão da Fronteira",
+    id: 3,
+    img: missao3,
+    title: "Batalha pela Supremacia",
     description:
-      "É necessário explorar e colonizar novas terras além da fronteira para o crescimento do reino.",
-    objectives: ["Mapear a região", "Estabelecer um posto avançado"],
-    rewards: ["Terras férteis", "150 pontos de experiência"],
-    difficulty: "Fácil",
-    location: "Terras Inexploradas",
-    prerequisites: ["Equipe de exploradores", "Suprimentos adequados"],
-    status: "Ativa",
-    notes: "Explorar com cautela.",
+      "Uma grande batalha se aproxima entre os exércitos Viking e Templário pelo controle de uma fortaleza estratégica. Você é encarregado de liderar as tropas vikings no campo de batalha, coordenando ataques e defesas para garantir a vitória e estabelecer a supremacia sobre o inimigo.",
   },
   {
-    title: "Desafio do Labirinto",
+    id: 4,
+    img: missao4,
+    title: "Traição nas Sombras",
     description:
-      "Um labirinto misterioso foi descoberto e desafia os aventureiros corajosos a superá-lo.",
-    objectives: ["Navegar pelo labirinto", "Alcançar o centro"],
-    rewards: ["Tesouro oculto", "250 pontos de experiência"],
-    difficulty: "Médio",
-    location: "Labirinto dos Antigos",
-    prerequisites: ["Habilidade em labirintos", "Paciência e astúcia"],
-    status: "Ativa",
-    notes: "Cuidado com as ilusões do labirinto.",
+      "Um espião templário infiltrou-se nas fileiras vikings e está planejando um ataque surpresa durante a próxima assembleia do clã. Sua missão é descobrir a identidade do traidor, reunir provas de sua traição e impedir que ele coloque em prática seus planos nefastos.",
   },
   {
-    title: "Paz entre Reinos",
+    id: 5,
+    img: missao5,
+    title: "Jornada ao Desconhecido",
     description:
-      "Negociações diplomáticas são necessárias para estabelecer paz entre reinos vizinhos em conflito.",
-    objectives: [
-      "Negociar um tratado de paz",
-      "Resolver disputas territoriais",
-    ],
-    rewards: ["Paz duradoura", "500 pontos de experiência"],
-    difficulty: "Difícil",
-    location: "Salão dos Reis",
-    prerequisites: ["Habilidade diplomática", "Conhecimento político"],
-    status: "Ativa",
-    notes: "A diplomacia requer tato e sabedoria.",
+      "Os sábios vikings descobriram a existência de uma terra misteriosa além dos mares, repleta de tesouros e perigos desconhecidos. Você é convocado para liderar uma expedição audaciosa até essa terra distante, enfrentando tempestades, monstros marinhos e os próprios Templários que buscam os mesmos segredos.",
   },
   {
-    title: "Caça ao Monstro",
+    id: 6,
+    img: missao6,
+    title: "O Artefato Perdido",
     description:
-      "Um monstro lendário está aterrorizando as aldeias e precisa ser derrotado.",
-    objectives: ["Localizar o covil do monstro", "Derrotar o monstro"],
-    rewards: ["Glória eterna", "1000 pontos de experiência"],
-    difficulty: "Muito Difícil",
-    location: "Montanhas Sombrias",
-    prerequisites: ["Força incomparável", "Determinação implacável"],
-    status: "Ativa",
-    notes: "O monstro é extremamente perigoso.",
+      "Há rumores de um artefato antigo perdido em uma caverna esquecida, que detém poderes místicos capazes de inclinar a balança da guerra a favor de quem o possuir. Sua missão é atravessar territórios hostis, explorar as profundezas da caverna e enfrentar os perigos que guardam o artefato, enquanto os Templários também estão em busca dessa relíquia perdida.",
   },
 ];
 
@@ -84,18 +55,7 @@ const characters = [
     name: "Aldric Stronghammer",
     class: "Guerreiro",
     level: 10,
-    attributes: {
-      strength: 18,
-      dexterity: 14,
-      constitution: 16,
-      intelligence: 10,
-      wisdom: 12,
-      charisma: 10,
-    },
     skills: ["Espada Longa", "Armadura Pesada", "Liderança"],
-    equipment: ["Espada Longa +2", "Armadura Completa", "Escudo de Aço"],
-    gold: 500,
-    experience: 15000,
   },
   {
     name: "Lyra Shadowcloak",

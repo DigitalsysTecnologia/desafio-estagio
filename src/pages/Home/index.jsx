@@ -1,8 +1,10 @@
-import { Box, Text, Flex } from "@chakra-ui/react";
+import { Box, Text, Flex, ListItem, position } from "@chakra-ui/react";
 import bg1 from "../../img/bg.jpg";
 import bg2 from "../../img/bg2.jpg";
 import { Header } from "../../components/Header";
-import Carousel from "../../components/Carousel";
+import { Carousel } from "../../components/Carousel";
+import { CardMissions } from "../../components/CardMissions";
+import { missions } from "../../services/database";
 
 const HomePage = () => {
   return (
@@ -14,10 +16,11 @@ const HomePage = () => {
         bgPosition={"center"}
         bgRepeat={"no-repeat"}
         w={"100%"}
-        h={"100vh"}
+        h={"110vh"}
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
+        id="Início"
       >
         <Flex
           bgColor={"grey.0.5"}
@@ -25,8 +28,8 @@ const HomePage = () => {
           alignItems={"center"}
           flexDirection={"column"}
           gap={"20px"}
-          w={"60%"}
-          h={{ base: "70%", md: "67%" }}
+          w={"80%"}
+          h={{ base: "500px", md: "780px", xl: "550px" }}
           borderRadius={"8px"}
           padding={"30px"}
         >
@@ -40,7 +43,7 @@ const HomePage = () => {
             <Text
               color={"brand.2"}
               textAlign={"center"}
-              fontSize={{ base: "xl", md: "2xl" }}
+              fontSize={{ base: "xl", md: "2xl", xl: "3xl" }}
               fontWeight={"bold"}
             >
               BEM VINDO
@@ -50,8 +53,8 @@ const HomePage = () => {
           <Text
             color={"grey.9"}
             textAlign={"center"}
-            fontWeight={"bold"}
-            fontSize={{ base: "xs", md: "lg" }}
+            fontWeight={"medium"}
+            fontSize={{ base: "xs", md: "md" }}
           >
             Em um mundo mergulhado na era dos vikings e dos cavaleiros
             templários, duas culturas distintas se chocam em uma batalha épica
@@ -62,8 +65,8 @@ const HomePage = () => {
           <Text
             color={"grey.9"}
             textAlign={"center"}
-            fontWeight={"bold"}
-            fontSize={{ base: "xs", md: "lg" }}
+            fontWeight={"medium"}
+            fontSize={{ base: "xs", md: "md" }}
           >
             Prepare-se para embarcar em uma jornada épica onde os destemidos
             vikings e os nobres cavaleiros templários unem suas forças diante de
@@ -91,7 +94,7 @@ const HomePage = () => {
           <Text
             color={"brand.2"}
             textAlign={"center"}
-            fontSize={{ base: "xl", md: "2xl" }}
+            fontSize={{ base: "xl", md: "md", xl: "3xl" }}
             fontWeight={"bold"}
           >
             EXPLORE O MUNDO DE ADVENTUREREALM
@@ -106,11 +109,44 @@ const HomePage = () => {
         bgPosition={"center"}
         bgRepeat={"no-repeat"}
         w={"100%"}
-        h={"100vh"}
+        h={{ base: "400vh", md: "280vh" }}
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
-      ></Box>
+        id="Personagens"
+        flexDirection={"column"}
+      >
+        <Flex
+          flexDirection={"column"}
+          w={"100%"}
+          h={"100%"}
+          alignItems={"center"}
+          justifyContent={"center"}
+          gap={"60px"}
+        >
+          <Flex alignItems={"center"} justifyContent={"center"} w={"100%"}>
+            <Box
+              bgColor={"brand.2"}
+              w={"50px"}
+              h={"2px"}
+              marginRight={"10px"}
+            />
+            <Text
+              color={"brand.2"}
+              textAlign={"center"}
+              fontSize={{ base: "xl", md: "md", xl: "3xl" }}
+              fontWeight={"bold"}
+            >
+              CONHEÇA AS MISSÕES DENTRO DO JOGO
+            </Text>
+            <Box bgColor={"brand.2"} w={"50px"} h={"2px"} marginLeft={"10px"} />
+          </Flex>
+
+          {missions.map((element) => (
+            <CardMissions mission={element} />
+          ))}
+        </Flex>
+      </Box>
     </>
   );
 };
