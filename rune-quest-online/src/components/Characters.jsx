@@ -7,7 +7,7 @@ function Characters(){
             <h1 className="character-title-container">Trilhe seu caminho Fulano</h1>
             <hr></hr>
             <div className="background-container">
-                <img className="characters-background" src="./src/assets/classes-overall.png"></img>
+                <img className="characters-background" src="./src/assets/classes-overall.png" alt="Background Image"></img>
                 <div className="text-overlay">
                     <h2 className="text-characters">Descubra os personagens nessa aventura</h2>
                 </div>
