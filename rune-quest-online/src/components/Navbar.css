@@ -1,0 +1,26 @@
+.header{
+    background-color: #282828;
+    height: auto;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 100;
+}
+.nav-container{
+  align-items: center;
+  display: flex;
+  margin: 0.9rem;
+}
+
+.image-container{
+  @media(max-width: 768px){
+    margin: auto;
+  }
+}
+
+.logo-yellow{
+    height: 44px;
+    width: 141px;
+}

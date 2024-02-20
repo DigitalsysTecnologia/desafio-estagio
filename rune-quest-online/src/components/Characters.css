@@ -1,0 +1,97 @@
+
+.characters-container{
+    font-family: "Gentium Book Plus", serif;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+    @media (max-width: 768px) {
+        margin-left:8%;
+        margin-right: 8%;
+      }
+}
+
+.character-title-container{
+    color: white;
+    margin: 0.1rem;
+    font-size: 4rem;
+    line-height: 80%;
+    @media(max-width: 768px){
+        font-size: 2.2rem;;
+    }
+}
+
+hr{
+    width: 100%;
+    color: white;
+}
+
+.characters-background{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    
+}
+
+.background-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.text-overlay{
+    text-align: center;
+    position: absolute; /* This remains here */
+    bottom: 0; /* Positions text at the bottom */
+    @media(max-width: 1023px){
+        position: static;
+    }
+}
+
+.text-characters{
+    color: white;
+    text-align: center;
+    font-size: 3.5rem;
+    margin: 0.1rem;
+    line-height: 80%;
+    margin-bottom: 10px;
+    @media(max-width: 768px){
+        font-size: 2rem;;
+    }
+}
+
+.button-container{
+    position:absolute;
+    bottom: -55px;
+    
+}
+button{
+    font-family: "Gentium Book Plus", serif;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    vertical-align: text-top;
+    padding: -1rem;
+    background-color: #EBC746;
+    color: black;
+    border-radius: 15px;
+    border: 0;
+    height: 50px;
+    width: 260px;
+    margin: 0;
+    transition: 0.15s;
+    
+
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: #e7cf78;
+    color: rgb(51, 51, 51);
+    
+}
+
+
+

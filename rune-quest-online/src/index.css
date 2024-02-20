@@ -1,0 +1,11 @@
+body{
+  margin-top: 78px;
+  height: 2700px;
+  background-color: #3A3939;
+  padding: 0px;
+  padding-bottom: 100px;
+  @media(max-width: 1441px){
+    height: auto;
+  }
+}
+
