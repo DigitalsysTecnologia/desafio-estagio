@@ -39,12 +39,12 @@ npm run dev
 ## Recursos Implementados
 
 * Sistema de Rotas
-    <ul>path: "/home"
-    <u>path: "/select"
-    <ul>path: "/404"
+    * path: "/home"
+    * path: "/select"
+    * path: "/404"
     
 * Componentes Reutilizáveis
-    <ul>Componente Reutilizável **Navbar  **
-    <ul>Transições e Animações
-    <ul>Responsividade
-    <ul>No Page Error
+    * Componente Reutilizável **Navbar  **
+    * Transições e Animações
+    * Responsividade
+    * No Page Error
