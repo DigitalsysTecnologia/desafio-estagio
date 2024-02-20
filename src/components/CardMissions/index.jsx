@@ -5,7 +5,7 @@ const CardMissions = ({ mission }) => {
     <Flex
       bgColor={"grey.0.5"}
       width={"80%"}
-      height={{ base: "500px", md: "250px", xl: "300px" }}
+      height={{ base: "520px", md: "250px", lg: "350px" }}
       borderRadius={"10px"}
       flexDirection={{ base: "column", md: "row" }}
     >
@@ -24,20 +24,58 @@ const CardMissions = ({ mission }) => {
               w={"100%"}
               h={"100%"}
               padding={"30px"}
-              flexDirection={"column"}
               justifyContent={"center"}
-              gap={"20px"}
+              alignItems={"center"}
+              gap={"10px"}
             >
-              <Text
-                fontSize={{ base: "lg", md: "xl" }}
-                color={"grey.9"}
-                textDecoration={"underline"}
+              <Flex
+                w={"70%"}
+                flexDirection={"column"}
+                h={"100%"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                gap={"10px"}
               >
-                {mission.title}
-              </Text>
-              <Text fontSize={{ base: "xs", md: "xl" }} color={"grey.9"}>
-                {mission.description}
-              </Text>
+                <Text
+                  fontSize={{ base: "lg", lg: "xl" }}
+                  color={"grey.9"}
+                  textDecoration={"underline"}
+                >
+                  {mission.title}
+                </Text>
+                <Text fontSize={{ base: "xs", lg: "xl" }} color={"grey.9"}>
+                  {mission.description}
+                </Text>
+              </Flex>
+              <Flex
+                flexDirection={"column"}
+                h={"100%"}
+                w={"30%"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                gap={"10px"}
+              >
+                <Text
+                  fontSize={{ base: "lg", lg: "xl" }}
+                  color={"grey.9"}
+                  textDecoration={"underline"}
+                >
+                  Nível
+                </Text>
+                <Text fontSize={{ base: "xs", lg: "xl" }} color={"grey.9"}>
+                  {mission.level}
+                </Text>
+                <Text
+                  fontSize={{ base: "lg", lg: "xl" }}
+                  color={"grey.9"}
+                  textDecoration={"underline"}
+                >
+                  Status
+                </Text>
+                <Text fontSize={{ base: "xs", lg: "xl" }} color={"grey.9"}>
+                  {mission.status}
+                </Text>
+              </Flex>
             </Flex>
           </Box>
         </>
@@ -52,20 +90,57 @@ const CardMissions = ({ mission }) => {
               w={"100%"}
               h={"100%"}
               padding={"30px"}
-              flexDirection={"column"}
               justifyContent={"center"}
-              gap={"20px"}
+              gap={"10px"}
             >
-              <Text
-                fontSize={{ base: "lg", md: "xl" }}
-                color={"grey.9"}
-                textDecoration={"underline"}
+              <Flex
+                w={"70%"}
+                flexDirection={"column"}
+                h={"100%"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                gap={"10px"}
               >
-                {mission.title}
-              </Text>
-              <Text fontSize={{ base: "xs", md: "xl" }} color={"grey.9"}>
-                {mission.description}
-              </Text>
+                <Text
+                  fontSize={{ base: "lg", lg: "xl" }}
+                  color={"grey.9"}
+                  textDecoration={"underline"}
+                >
+                  {mission.title}
+                </Text>
+                <Text fontSize={{ base: "xs", lg: "xl" }} color={"grey.9"}>
+                  {mission.description}
+                </Text>
+              </Flex>
+              <Flex
+                flexDirection={"column"}
+                h={"100%"}
+                w={"30%"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                gap={"10px"}
+              >
+                <Text
+                  fontSize={{ base: "lg", lg: "xl" }}
+                  color={"grey.9"}
+                  textDecoration={"underline"}
+                >
+                  Nível
+                </Text>
+                <Text fontSize={{ base: "xs", lg: "xl" }} color={"grey.9"}>
+                  {mission.level}
+                </Text>
+                <Text
+                  fontSize={{ base: "lg", lg: "xl" }}
+                  color={"grey.9"}
+                  textDecoration={"underline"}
+                >
+                  Status
+                </Text>
+                <Text fontSize={{ base: "xs", lg: "xl" }} color={"grey.9"}>
+                  {mission.status}
+                </Text>
+              </Flex>
             </Flex>
           </Flex>
           <Box

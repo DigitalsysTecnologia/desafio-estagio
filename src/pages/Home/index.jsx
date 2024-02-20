@@ -5,6 +5,7 @@ import { Header } from "../../components/Header";
 import { Carousel } from "../../components/Carousel";
 import { CardMissions } from "../../components/CardMissions";
 import { missions } from "../../services/database";
+import { CarouselCharacters } from "../../components/CarouselCharacters";
 
 const HomePage = () => {
   return (
@@ -109,11 +110,11 @@ const HomePage = () => {
         bgPosition={"center"}
         bgRepeat={"no-repeat"}
         w={"100%"}
-        h={{ base: "400vh", md: "280vh" }}
+        h={{ base: "420vh", md: "300vh" }}
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
-        id="Personagens"
+        id="Missões"
         flexDirection={"column"}
       >
         <Flex
@@ -146,6 +147,36 @@ const HomePage = () => {
             <CardMissions mission={element} />
           ))}
         </Flex>
+      </Box>
+      <Box
+        bgGradient={
+          "linear-gradient(to bottom, #15171a, #262329, #3b2f33, #4d3e3a, #594f42)"
+        }
+        bgSize={"cover"}
+        bgPosition={"center"}
+        bgRepeat={"no-repeat"}
+        w={"100%"}
+        h={"140vh"}
+        display={"flex"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        flexDirection={"column"}
+        gap={"100px"}
+        id="Personagens"
+      >
+        <Flex alignItems={"center"} justifyContent={"center"} w={"100%"}>
+          <Box bgColor={"brand.2"} w={"50px"} h={"2px"} marginRight={"10px"} />
+          <Text
+            color={"brand.2"}
+            textAlign={"center"}
+            fontSize={{ base: "xl", md: "md", xl: "3xl" }}
+            fontWeight={"bold"}
+          >
+            DESCUBRA OS PERSONAGENS NESTE UNIVERSO
+          </Text>
+          <Box bgColor={"brand.2"} w={"50px"} h={"2px"} marginLeft={"10px"} />
+        </Flex>
+        <CarouselCharacters />
       </Box>
     </>
   );
