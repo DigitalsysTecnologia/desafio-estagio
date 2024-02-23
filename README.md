@@ -1,59 +1,71 @@
-# Desafio Técnico - Temática RPG
 
-Bem-vindos ao nosso processo seletivo para vagas de estágio em desenvolvimento! Estamos procurando talentos apaixonados por tecnologia e inovação, prontos para enfrentar desafios no mundo do desenvolvimento de software. Para tornar este processo mais interativo e divertido, elaboramos desafios técnicos inspirados no universo dos RPGs.
+# Desafio Técnico Estágio
 
-### IMPORTANTE: Por favor, faça o teste com o maior capricho possível, visto que é através dos detalhes que poderemos avaliar sua experiência e senioridade
+Este repositório apresenta um solução para o desafio técnico como parte do processo seletivo para a vaga de estágio.
 
-## Desafios
+O desafio consiste em uma API RESTful que permite operações CRUD em missões de aventura tendo como temática o universo dos RPGs.
 
-Abaixo você encontrará os desafios para dev backend e dev frontend, faça o teste que for mais confortável para você, note que o teste de frontend ainda inclui mais uma escolha: mobile ou web, ambos usando o framework React.
 
-### Dev Backend (Golang) - O Guardião dos Dados
-![Guardião dos dados](https://digitalsys-cdn.nyc3.cdn.digitaloceanspaces.com/desafio-estagio/guardiao-dados-2.png)
+## Estrutura da API
 
-#### Contexto
-Você é um Guardião dos Dados, encarregado de desenvolver uma infraestrutura segura para gerenciar as informações cruciais do reino. Utilizando Golang, juntamente com Gin Gonic e GORM, você deverá criar uma API RESTful que administre as missões de uma guilda de aventureiros.
+A API implementa um CRUD para as missões, permitindo as seguintes operações:
 
-#### Missão
-Desenvolver uma API RESTful usando **Gin Gonic** que permita operações CRUD em missões de aventura. Utilize **GORM** para a interação com o banco de dados, facilitando a persistência e recuperação dos dados.
+- Criação de missões
+- Busca de todas as missões cadastradas
+- Busca de uma missão através do seu ID
+- Atualizaçaõ de missões
+- Exclusão de missões
 
-##### Requisitos Específicos
-- **Framework:** Utilize Gin Gonic para facilitar a criação da API.
-- **ORM:** Use GORM para manipulação dos dados no banco de dados.
-- **Autenticação:** Implemente autenticação básica para proteger a API.
-- **Documentação:** Documente os endpoints e exemplos de uso da API.
-- **Bônus:** Implemente testes unitários e de integração.
+As missões possuem as seguintes propriedades:
 
-### Dev Frontend (ReactJS/React Native) - O Artesão de Ilusões
-![Artesão das Ilusões](https://digitalsys-cdn.nyc3.cdn.digitaloceanspaces.com/desafio-estagio/artesao-ilusoes-2.png)
-#### Contexto
-Como um Artesão de Ilusões, você cria ambientes e objetos encantadores. Sua tarefa é desenvolver uma aplicação frontend que apresente um catálogo de aventuras e personagens de um RPG, demonstrando suas habilidades em criar interfaces ricas e interativas.
+- **Id**
+- **Nome**
+- **Descrição**
+- **Level Recomendado**
+- **Localização**
+- **Recompensa**
+- **Dificuldade**
 
-#### Missão
-Desenvolver uma aplicação frontend que exiba uma lista de missões e personagens, utilizando ReactJS para web ou React Native para mobile. A aplicação deve permitir ao usuário visualizar detalhes de cada missão e personagem, incluindo descrição, dificuldade e status.
+Para ter acesso às rotas do CRUD de missões, um usuário precisa estar devidamente autenticado, com esse objetivo a API implementa uma rota de **login** simples, validando as credenciais do usuário e retornando um **token de autenticação**.
 
-##### Requisitos Específicos
-- Utilizar ReactJS para web ou React Native para mobile.
-- A aplicação deve ser responsiva e oferecer uma boa experiência de usuário em diferentes dispositivos.
-- Implementar navegação entre diferentes telas ou seções da aplicação.
-- **Bônus:** Utilizar animações ou transições para melhorar a interatividade da interface.
+A API implementa também um CRUD para usuários, permitindo as mesmas operação do CRUD de missões. Os usuários possuem as seguintes propriedades:
 
-## Orientações para Submissão
+- **Id**
+- **Nome**
+- **Email**
+- **Senha**
 
-1. **Fork este repositório** para sua conta no GitHub.
-2. **Crie uma branch específica** para o desafio que você está desenvolvendo (`backend-golang` ou `frontend-react`).
-3. **Desenvolva o projeto** seguindo os requisitos do desafio escolhido.
-4. **Documente** no `README.md` as instruções de como configurar e executar seu projeto, além de exemplos de uso da API ou da interface, conforme aplicável.
-5. **Abra um Pull Request** com suas alterações, incluindo no título do PR o desafio que você está submetendo e no corpo do PR qualquer observação ou comentário relevante sobre seu projeto.
+O login é feito através das credencias de **Email** e **Senha**
 
-### Critérios de Avaliação
 
-- **Qualidade do código:** legibilidade, organização, aplicação de boas práticas.
-- **Funcionalidade:** todas as funcionalidades requisitadas devem estar implementadas e funcionando conforme esperado.
-- **Documentação:** clareza nas instruções de configuração e uso do projeto.
-- **Extras:** qualquer funcionalidade ou característica extra será considerada positivamente.
+## Inicialização
 
-### Deadline (Prazo de entrega)
-- **Não existe prazo determinado para a entrega do projeto:** entretanto, recomendamos que faça-o tão logo possível,  com certeza vamos ler e avaliar seu código, mas suponhamos que você só consiga nos enviar seu teste após outros 5 candidatos serem aprovados no teste e nas demais fases, isso significa que seu teste precisará ser MUITO bom para abrirmos uma exceção e colocar você como o nosso "sexto elemento" =) 
+Siga as etapas descritas abaixo para executar o servidor localmente:
 
-Boa sorte! Estamos ansiosos para ver as soluções incríveis que você irá criar.
+1. Clone o repositório do github
+
+3. Configure as variáveis de ambiente:
+
+- Crie um arquivo `.env` **na raiz** do diretório do projeto.
+- No arquivo `.env`, crie as variáveis de ambiente com base no arquivo `.env.example`
+
+
+4. Instale as dependências necessárias através do comando:
+```
+go mod tidy
+```
+
+5. Inicialize o servidor através do comando:
+```
+go run main.go
+```
+## Documentação da API
+
+A documentação da API pode ser acessada **[através desse link](https://documenter.getpostman.com/view/27729819/2sA2rCSgHc#452e09ab-d148-4264-b814-d7436b1bc0c8 'através desse link')**
+
+
+## Tecnologias utilizadas
+
+- **Gin Gonic**
+- **GORM**
+- **PostgreSQL**
