@@ -1,0 +1,99 @@
+.page-details {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    position: absolute;
+    animation: slideIn 2s forwards; /* Inicia a animação slideIn */
+
+}
+
+/* Para a execução da animação nas telas referentes a detalhes*/
+  
+@keyframes slideIn {
+  from {
+    left: -2000px; /* Define a posição inicial fora da tela */
+  }
+  to {
+    left: 0; /* Define a posição final na tela */
+  }
+}
+
+
+.page-details h2 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+    margin-left: 40px;
+}
+  
+.page-details img {
+    padding-top: 80px;
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    
+}
+  
+.page-details p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    margin-left: 40px;
+}
+  
+.page-details p:first-child {
+    margin-top: 0;
+}
+
+.page-details p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    position: relative;
+}
+
+.page-details p::before {
+    content: "•"; /* Adiciona um ponto antes de cada parágrafo */
+    color: #555; /* Cor do ponto */
+    font-size: 16px; /* Tamanho do ponto */
+    margin-right: 10px; /* Espaçamento entre o ponto e o texto */
+    position: absolute; /* Posicionamento absoluto em relação ao elemento pai */
+    left: -15px; /* Posiciona o ponto à esquerda do texto */
+}
+
+
+  /* Responsividade para telas menores */
+  
+@media screen and (max-width: 768px) {
+  .page-details {
+    padding: 10px; /* Reduz o preenchimento */
+    display: flex; /* realiza o display flex e wrap*/
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .page-details img {
+    padding-top: 10px; /* Reduz o espaçamento acima da imagem */
+    margin-bottom: 10px; /* Reduz o espaçamento abaixo da imagem */
+  }
+
+  .page-details h2 {
+    text-align: center; /* Centraliza o texto*/
+  }
+
+  .page-details p {
+    margin-left: 0; /* Remove o espaçamento à esquerda */
+  }
+
+  .page-details p::before {
+    left: 0; /* Remove o ponto da esquerda */
+  }
+}

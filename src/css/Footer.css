@@ -1,0 +1,63 @@
+.footer {
+    background-color: #333; /* Cor de fundo do rodapé */
+    color: #fff; 
+    padding: 20px; 
+    bottom: 1;
+    left: 0;
+    width: 100%;
+    display: flex;
+    margin-right: 220px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: absolute;
+}
+
+.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+  
+.container {
+    max-width: 1200px; /* Largura máxima do conteúdo do rodapé */
+    margin: 0 auto; /*Centralizar o conteúdo do rodapé horizontalmente */
+}
+
+a {
+    color: #fcfeff; 
+    text-decoration: none; 
+}
+  
+a:hover {
+    color: #037af9; /* Altera a cor do texto dos elementos com links ao passar o mouse */
+}
+  
+ul {
+    list-style-type: none; /* Remover marcadores de lista */
+    padding: 0;
+}
+  
+ul li {
+    margin-bottom: 10px; /* Espaçamento entre itens da lista */
+    margin-right: 200px;
+}
+  
+
+.footer-column {
+    flex: 1;
+    margin: 0 10px;
+}
+  
+.footer-column h3 {
+    color: #ffffff;
+}
+  
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+  
+.footer-column ul li {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,32 @@
+.navbar {
+    background-color: #333 !important;
+    height: 70px; /* Altura da Navbar */
+    display:inline;
+     /* Alinhar itens verticalmente */
+    box-sizing: border-box; /* Considerar padding e border na largura total */
+    
+  }
+  
+.navbar-list {
+    display: flex;
+    justify-content: center; /* Alinhar itens horizontalmente */
+    list-style-type: none;
+    padding: 0;
+}
+  
+.navbar-item {
+    font-size: larger;
+    margin: 0 10px;
+}
+  
+.navbar-item a {
+    color: #ffffff;
+    text-decoration: bold;
+}
+  
+.navbar-item a:hover {
+    text-decoration: underline;
+    color:#7d7d7d;
+    transition: color 0.3s ease;
+}
+  

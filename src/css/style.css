@@ -1,0 +1,63 @@
+body {
+    background-color: #ff9900;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    height: 10vh;
+}
+
+.titulo{
+   text-align: center;
+}
+
+.container-inicial h1{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh; 
+}
+
+.container-inicial p{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+button{
+    margin-bottom: 10px;
+    font-size: 20px;
+    width: 200px; 
+    height: 50px; 
+    margin-left: 20px;
+
+    background-color: #ff0080; 
+    color: #ffffff; 
+    border: 2px solid #318ef2; 
+    border-radius: 50px; 
+    background: linear-gradient(to right, #007bff, #0056b3); /* Gradiente azul (efeito especial) */
+}
+
+button:hover {
+    /* Design de estilização ao passar o mouse em cima do botão */
+    background-color: #000000; 
+    color: #ffffff; 
+    border: 2px solid #777777; 
+    background: linear-gradient(to right, #000000, #daecff); /* Gradiente azul */
+    cursor: pointer;
+}
+
+button:focus{
+    outline: none; /* Remove a borda padrão do foco */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Adiciona uma sombra ao focar */
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .titulo {
+        text-align: center;
+    }
+}

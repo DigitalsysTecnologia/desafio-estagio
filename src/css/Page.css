@@ -1,0 +1,47 @@
+.page {
+    background-color: #ffffff;
+    border-radius: 8px; /* borda padrão que as empresas vem adotando no design atualmente*/
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+    display: flex; /* Adiciona um layout flexível ao container pai */
+    flex-direction: column; /* Garante que os elementos filhos sejam dispostos verticalmente */
+    align-items: center; /* Centraliza os elementos filhos horizontalmente (imagens, texto, etc.) */
+    /*pensei que seria necessário aplicar uma estilização individualmente, n foi preciso =D */
+  }
+
+  
+.page:hover {
+    transform: translateY(-5px);
+    background-color: #000000;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+  
+.page img {
+    width: 55%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  
+    max-height: 300px; /* Defina uma altura máxima para a imagem */
+}
+
+
+.page img:hover{
+    transform: scale(1.05); /* Aumenta o tamanho da imagem em 10% */
+    transition: 0.5s;
+}
+  
+.page h2{
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    
+}
+  
+.page .character-description {
+    font-size: 14px;
+    color: #666666;
+}
+
