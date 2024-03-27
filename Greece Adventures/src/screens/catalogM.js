@@ -13,7 +13,6 @@ const CatalogM = () => {
   const charactersData = [
     { id: 1, image: designCapa },
     { id: 2, image: designLabirinto },
-    //{id: 3, image: copia},
     { id: 3, image: designCerejas },
     { id: 4, image: designAlgas },
     { id: 5, image: designColinas },
