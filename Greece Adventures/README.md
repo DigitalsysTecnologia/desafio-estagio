@@ -1,0 +1,8 @@
+Sobre o Sistema 
+
+Greece Adventures é um aplicativo destinado à catalogação de personagens e missões de RPG. São apresentados quatro personagens e cinco missões, bem como uma contextualização do universo criado. Ambientado em meio a elementos da mitologia grega, o Greece Adventures apresenta design baseado em Pixel Art e layout simples. 
+
+
+Instruções técnicas 
+
+O projeto, voltado para sistemas Android, foi desenvolvido usando Expo, na versão 6.3.10, no React Native. Para rodá-lo, é necessário que o Node.js esteja instalado na máquina, na versão v20.11.1, conforme utilizado no desenvolvimento. É recomendável, mas não vitalmente necessário, o uso do emulador Medium Phone API 33, Android 13.0 ("Tiramisu"), disponível no Android Studio; caso opte por usá-lo, certifique-se de criar uma nova variável de ambiente, de copiar o caminho do Android SDK e de colá-lo no valor da variável; repita o processo com uma variável do sistema (para mais informações, acesse https://developer.android.com/studio?gad_source=1&gclid=CjwKCAjw5ImwBhBtEiwAFHDZx8QjM3O3vI1kvpuZviee43sUHH5bIQlDpkPHSOcUM4EofqRrxrDUVBoCRw0QAvD_BwE&gclsrc=aw.ds&hl=pt-br). Com o ambiente preparado, abra um terminal na pasta do projeto e rode com o comando npx expo start. Será exibida uma lista de comandos cujas opções compreendem iniciar o projeto no emulador android (a), reiniciar o projeto (r), entre outras. Isso feito, já será possível usar o aplicativo.

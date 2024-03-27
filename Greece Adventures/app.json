@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "Greece Adventures",
+    "slug": "Greece Adventures",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/image/logo.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/image/startBackground.jpg",
+      "resizeMode": "cover",
+      "brightness": "1"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/image/startBackground.jpg",
+        "backgroundColor": "#ffffff",
+        "brightness": "1"
+      }
+    },
+    "web": {
+      "favicon": "./assets/image/logo.png"
+    },
+    "plugins": [
+      "expo-font"
+    ]
+  }
+}
